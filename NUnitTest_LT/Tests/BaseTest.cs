@@ -26,7 +26,7 @@ namespace NUnitTest_LT.Tests
             driver.Manage().Window.Maximize();
 
             //Setting up the Implicit Wait
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
 
             //setting up the wait
             wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
