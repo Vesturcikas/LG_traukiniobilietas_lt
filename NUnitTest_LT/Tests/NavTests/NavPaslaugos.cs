@@ -3,11 +3,11 @@ using NUnit.Framework;
 
 namespace NUnitTest_LT.Tests.NavTests
 {
-    public class NavKeleiviams : BaseTest
+    public class NavPaslaugos : BaseTest
     {
         private IWebElement topNav => driver.FindElement(By.CssSelector(".nav"));
-        private IWebElement keleiviamsNav => topNav.FindElement(By.CssSelector(".top-passenger"));
-        private IWebElement keleiviamsSubMenu => keleiviamsNav.FindElement(By.CssSelector(".submenu-wrap"));
+        private IWebElement paslaugosNav => topNav.FindElement(By.CssSelector(".top-business"));
+        private IWebElement paslaugosSubMenu => paslaugosNav.FindElement(By.CssSelector(".submenu-wrap"));
 
         [SetUp]
         public void BeforeTests()
@@ -18,10 +18,10 @@ namespace NUnitTest_LT.Tests.NavTests
         }
 
         [Test]
-        public void TopNavKeleiviams()
+        public void TopNavPaslaugos()
         {
-            keleiviamsNav.Click();
-            Assert.IsTrue(keleiviamsSubMenu.Enabled);
+            paslaugosNav.Click();
+            Assert.IsTrue(paslaugosSubMenu.Enabled);
         }
 
         [TearDown]

@@ -17,7 +17,7 @@ namespace NUnitTest_LT.Tests.NavTests
         }
 
         [Test]
-        public void LgTopNavBilietai()
+        public void TopNavBilietai()
         {            
             bilietaiNav.Click();
             Assert.AreEqual("https://www.traukiniobilietas.lt/portal/", driver.Url);
