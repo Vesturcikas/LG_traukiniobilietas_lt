@@ -19,20 +19,24 @@ namespace NUnitTest_LT.Tests
         [SetUp]
         public void BeforeEveryTest()
         {
-            baseUrl = "https://www.traukiniobilietas.lt/portal/";
+            baseUrl = "https://www.traukiniobilietas.lt/portal";
             var chromeOptions = new ChromeOptions();
             chromeOptions.PageLoadStrategy = PageLoadStrategy.Eager;
             driver = new ChromeDriver(chromeOptions);
             driver.Manage().Window.Maximize();
 
             //Setting up the Implicit Wait
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
 
             //setting up the wait
-            wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
 
             //setting up the action
             act = new Actions(driver);
+
+            //Closing the cookies message
+            //IWebElement lgCookiesMessageClose =driver.FindElement(By.CssSelector(".cookies-message-close"));
+            //lgCookiesMessageClose.Click();
         }
 
         [TearDown]
@@ -40,6 +44,14 @@ namespace NUnitTest_LT.Tests
         {
             driver.Quit();
             driver.Dispose();
+        }
+
+        //Closing the cookies message
+        public void CloseCookiesMessage()
+        {
+            IWebElement lgCookiesMessageClose = wait
+                .Until(dr => dr.FindElement(By.CssSelector(".cookies-message-close")));
+            lgCookiesMessageClose.Click();
         }
     }
 }

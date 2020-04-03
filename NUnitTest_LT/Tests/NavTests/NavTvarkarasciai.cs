@@ -3,24 +3,24 @@ using NUnit.Framework;
 
 namespace NUnitTest_LT.Tests.NavTests
 {
-    class NavBilietai : BaseTest
+    public class NavTvarkarasciai : BaseTest
     {
         private IWebElement topNav => driver.FindElement(By.CssSelector(".nav"));
-        private IWebElement bilietaiNav => topNav.FindElement(By.LinkText("Bilietai"));
+        private IWebElement tvarkaraciaiNav => topNav.FindElement(By.LinkText("Tvarkaraščiai"));
 
         [SetUp]
         public void BeforeTests()
         {
-            string testUrl = baseUrl;
+            string testUrl = baseUrl + "/routes-schedules";
             driver.Navigate().GoToUrl(testUrl);
             //CloseCookiesMessage();
         }
 
         [Test]
-        public void LgTopNavBilietai()
-        {            
-            bilietaiNav.Click();
-            Assert.AreEqual("https://www.traukiniobilietas.lt/portal/", driver.Url);
+        public void TopNavTvarkarasciai()
+        {
+            tvarkaraciaiNav.Click();
+            Assert.AreEqual("https://www.traukiniobilietas.lt/portal/routes-schedules", driver.Url);
         }
 
         [TearDown]
