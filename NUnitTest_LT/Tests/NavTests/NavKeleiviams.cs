@@ -3,10 +3,11 @@ using NUnit.Framework;
 
 namespace NUnitTest_LT.Tests.NavTests
 {
-    public class NavTvarkarasciai : BaseTest
+    public class NavKeleiviams : BaseTest
     {
         private IWebElement topNav => driver.FindElement(By.CssSelector(".nav"));
-        private IWebElement tvarkaraciaiNav => topNav.FindElement(By.LinkText("Tvarkaraščiai"));
+        private IWebElement keleiviamsNav => topNav.FindElement(By.CssSelector(".top-passenger"));
+        private IWebElement keleiviamsSubMenu => keleiviamsNav.FindElement(By.CssSelector(".submenu-wrap"));
 
         [SetUp]
         public void BeforeTests()
@@ -19,8 +20,8 @@ namespace NUnitTest_LT.Tests.NavTests
         [Test]
         public void TopNavTvarkarasciai()
         {
-            tvarkaraciaiNav.Click();
-            Assert.AreEqual("https://www.traukiniobilietas.lt/portal/routes-schedules", driver.Url);
+            keleiviamsNav.Click();
+            Assert.IsTrue(keleiviamsSubMenu.Enabled);
         }
 
         [TearDown]
