@@ -95,3 +95,4 @@ D:\C#\Automatinis_Testavimas\LG_traukiniobilietas_lt\NUnitTest_LT\obj\Debug\netc
 D:\C#\Automatinis_Testavimas\LG_traukiniobilietas_lt\NUnitTest_LT\obj\Debug\netcoreapp3.1\NUnitTest_LT.dll
 D:\C#\Automatinis_Testavimas\LG_traukiniobilietas_lt\NUnitTest_LT\obj\Debug\netcoreapp3.1\NUnitTest_LT.pdb
 D:\C#\Automatinis_Testavimas\LG_traukiniobilietas_lt\NUnitTest_LT\obj\Debug\netcoreapp3.1\NUnitTest_LT.genruntimeconfig.cache
+D:\C#\Automatinis_Testavimas\LG_traukiniobilietas_lt\NUnitTest_LT\obj\Debug\netcoreapp3.1\NUnitTest_LT.csprojAssemblyReference.cache
