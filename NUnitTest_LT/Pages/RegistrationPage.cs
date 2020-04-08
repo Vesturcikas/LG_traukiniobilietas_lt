@@ -53,6 +53,7 @@ namespace NUnitTest_LT.Pages
         {
             return this;
         }
+
         public RegistrationPage InputCity()
         {
             return this;

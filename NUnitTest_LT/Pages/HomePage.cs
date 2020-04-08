@@ -5,7 +5,7 @@ using System.Text;
 
 namespace NUnitTest_LT.Pages
 {
-    public class BilietaiPage : BasePage
+    public class HomePage : BasePage
     {        
         private IWebElement bilietaiNav => driver.FindElement(By.CssSelector(".top .nav .top-left a[href='/portal/']"));
         private IWebElement tvarkaraciaiNav => driver.FindElement(By.CssSelector(".top .nav .top-left a[href='/portal/routes-schedules']"));
@@ -13,6 +13,7 @@ namespace NUnitTest_LT.Pages
         private IWebElement keleiviamsSubMenu => keleiviamsNav.FindElement(By.CssSelector(".submenu-wrap"));
         private IWebElement paslaugosNav => driver.FindElement(By.CssSelector(".top .nav .top-business"));
         private IWebElement paslaugosSubMenu => paslaugosNav.FindElement(By.CssSelector(".submenu-wrap"));
+        private IWebElement login => driver.FindElement(By.CssSelector(".top .nav .top-right .logged-out"));
 
         //
         private IWebElement frontForm => driver.FindElement(By.CssSelector(".front-form"));
@@ -27,88 +28,94 @@ namespace NUnitTest_LT.Pages
         private IWebElement countFront => frontForm.FindElement(By.CssSelector(".front-count"));
         private IWebElement searchButt => frontForm.FindElement(By.CssSelector("button"));
 
-        public BilietaiPage(IWebDriver driver) : base(driver) { }
+        public HomePage(IWebDriver driver) : base(driver) { }
 
-        public BilietaiPage NavBilietaiClick()
+        public HomePage NavBilietaiClick()
         {
             bilietaiNav.Click();
             return this;
         }
         
-        public BilietaiPage OneWayClick()
+        public HomePage OneWayClick()
         {
             return this;
         }
 
-        public BilietaiPage RoundTripClick()
+        public HomePage RoundTripClick()
         {
             return this;
         }
 
-        public BilietaiPage FixedTermClick()
+        public HomePage FixedTermClick()
         {
             return this;
         }
 
-        public BilietaiPage BuisnessCustomerClick()
+        public HomePage BuisnessCustomerClick()
         {
             return this;
         }
 
-        public BilietaiPage SelectFrom()
+        public HomePage SelectFrom()
         {
             return this;
         }
 
-        public BilietaiPage SelectTo()
+        public HomePage SelectTo()
         {
             return this;
         }
 
-        public BilietaiPage SelectDepartureDate()
+        public HomePage SelectDepartureDate()
         {
             return this;
         }
 
-        public BilietaiPage SelectArrivalDate()
+        public HomePage SelectArrivalDate()
         {
             return this;
         }
 
-        public BilietaiPage PassengerCountClick()
+        public HomePage PassengerCountClick()
         {
             return this;
         }
 
-        public BilietaiPage PassangerAdultsAdd()
+        public HomePage PassangerAdultsAdd()
         {
             return this;
         }
-        public BilietaiPage PassangerAdultsRemove()
-        {
-            return this;
-        }
-
-        public BilietaiPage PassangerChildrenAdd()
-        {
-            return this;
-        }
-        public BilietaiPage PassangerChildrenRemove()
+        public HomePage PassangerAdultsRemove()
         {
             return this;
         }
 
-        public BilietaiPage PassangerAnimalsAdd()
+        public HomePage PassangerChildrenAdd()
         {
             return this;
         }
-        public BilietaiPage PassangerAnimalsRemove()
+        public HomePage PassangerChildrenRemove()
         {
             return this;
         }
 
-        public BilietaiPage SerchButtonClick()
+        public HomePage PassangerAnimalsAdd()
         {
+            return this;
+        }
+        public HomePage PassangerAnimalsRemove()
+        {
+            return this;
+        }
+
+        public HomePage SerchButtonClick()
+        {
+            return this;
+        }
+
+        public HomePage SignInClick()
+        {
+            login.Click();
             return this;
         }
 

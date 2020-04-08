@@ -4,9 +4,9 @@ using NUnitTest_LT.AssertsPages;
 
 namespace NUnitTest_LT.Tests.NavTests
 {
-    class BilietaiTests : BaseTest
+    public class BilietaiTests : BaseTest
     {
-        private BilietaiPage navPage;
+        private HomePage homePage;
         private BilietaiAssretsPage navAssretsPage;
 
         [SetUp]
@@ -15,14 +15,14 @@ namespace NUnitTest_LT.Tests.NavTests
             string testUrl = baseUrl;
             driver.Navigate().GoToUrl(testUrl);
             navAssretsPage = new BilietaiAssretsPage(driver);
-            navPage = new BilietaiPage(driver);
+            homePage = new HomePage(driver);
             CloseCookiesMessage();
         }
 
         [Test]
         public void TopNavBilietai()
         {
-            navPage.NavBilietaiClick();
+            homePage.NavBilietaiClick();
             navAssretsPage.AssertBilietai();        
         }
         /*

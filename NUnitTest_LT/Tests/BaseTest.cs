@@ -42,8 +42,7 @@ namespace NUnitTest_LT.Tests
         [TearDown]
         public void AfterEveryTest()
         {
-            driver.Quit();
-            driver.Dispose();
+            driver.Quit();            
         }
 
         //Closing the cookies message
