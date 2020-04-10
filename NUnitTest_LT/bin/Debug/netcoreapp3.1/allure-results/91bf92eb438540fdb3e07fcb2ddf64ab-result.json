@@ -1,0 +1,79 @@
+{
+  "uuid": "6fc38f02-8942-446d-ba8c-083a5b152f87-tr-0-1002",
+  "historyId": "NUnitTest_LT.Tests.Login.LoginTests.ValidUserLoginTest",
+  "fullName": "NUnitTest_LT.Tests.Login.LoginTests.ValidUserLoginTest",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "DESKTOP-IUDBFSQ"
+    },
+    {
+      "name": "testClass",
+      "value": "NUnitTest_LT.Tests.Login.LoginTests"
+    },
+    {
+      "name": "testMethod",
+      "value": "ValidUserLoginTest"
+    },
+    {
+      "name": "package",
+      "value": "NUnitTest_LT.Tests.Login.LoginTests"
+    }
+  ],
+  "links": [],
+  "name": "ValidUserLoginTest",
+  "status": "passed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false
+  },
+  "stage": "finished",
+  "steps": [
+    {
+      "name": "ValidUserLoginTest",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [
+        {
+          "name": "Paspausti 'Prisijungti' mygtuką.",
+          "status": "passed",
+          "statusDetails": {
+            "known": false,
+            "muted": false,
+            "flaky": false
+          },
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1586520166188,
+          "stop": 1586520166290
+        }
+      ],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "d768cf2dbde6457b829f9406f69cb695-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1586520155681,
+      "stop": 1586520166649
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1586520155681,
+  "stop": 1586520166649
+}

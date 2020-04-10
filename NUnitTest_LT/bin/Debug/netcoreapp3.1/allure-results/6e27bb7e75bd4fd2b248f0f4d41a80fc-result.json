@@ -1,0 +1,63 @@
+{
+  "uuid": "085c030a-d7f9-4272-9450-7851660fc5ab-tr-0-1001",
+  "historyId": "NUnitTest_LT.Tests.Login.LoginTests.OpenCloseLoginPageTest",
+  "fullName": "NUnitTest_LT.Tests.Login.LoginTests.OpenCloseLoginPageTest",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "DESKTOP-IUDBFSQ"
+    },
+    {
+      "name": "testClass",
+      "value": "NUnitTest_LT.Tests.Login.LoginTests"
+    },
+    {
+      "name": "testMethod",
+      "value": "OpenCloseLoginPageTest"
+    },
+    {
+      "name": "package",
+      "value": "NUnitTest_LT.Tests.Login.LoginTests"
+    }
+  ],
+  "links": [],
+  "name": "OpenCloseLoginPageTest",
+  "status": "passed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false
+  },
+  "stage": "finished",
+  "steps": [
+    {
+      "name": "OpenCloseLoginPageTest",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "c3c7811aad7e4cc1b32ce5aff453d7ef-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1586519258874,
+      "stop": 1586519270819
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1586519258873,
+  "stop": 1586519270823
+}

@@ -1,9 +1,11 @@
 ﻿using NUnitTest_LT.Pages;
 using NUnitTest_LT.AssertsPages;
 using NUnit.Framework;
+using NUnit.Allure.Core;
 
 namespace NUnitTest_LT.Tests.Login
 {
+    [AllureNUnit]
     public class LoginTests : BaseTest
     {
         private HomePage homePage;
@@ -19,6 +21,15 @@ namespace NUnitTest_LT.Tests.Login
             loginPage = new LoginPage(driver);
             loginAssertsPage = new LoginAssertsPage(driver);
             CloseCookiesMessage();
+        }
+
+        [Test]
+        public void OpenCloseLoginPageTest()
+        {
+            homePage.SignInClick();
+            loginAssertsPage.AssertIsOpenLoginPage();
+            homePage.SignInClick();
+            loginAssertsPage.AssertIsClosedLoginPage();
         }
 
         [Test]

@@ -1,4 +1,6 @@
-﻿using OpenQA.Selenium;
+﻿using Allure.Commons;
+using NUnit.Allure.Core;
+using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -115,7 +117,11 @@ namespace NUnitTest_LT.Pages
 
         public HomePage SignInClick()
         {
-            login.Click();
+            AllureLifecycle.Instance.WrapInStep(() => 
+            {
+                login.Click();                
+            },
+            "Paspausti 'Prisijungti' mygtuką.");
             return this;
         }
 

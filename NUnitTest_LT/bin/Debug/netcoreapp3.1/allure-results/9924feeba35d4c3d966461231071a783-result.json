@@ -1,0 +1,94 @@
+{
+  "uuid": "4339592b-b224-4a82-904d-3276c7850f40-tr-0-1001",
+  "historyId": "NUnitTest_LT.Tests.Login.LoginTests.OpenCloseLoginPageTest",
+  "fullName": "NUnitTest_LT.Tests.Login.LoginTests.OpenCloseLoginPageTest",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "DESKTOP-IUDBFSQ"
+    },
+    {
+      "name": "testClass",
+      "value": "NUnitTest_LT.Tests.Login.LoginTests"
+    },
+    {
+      "name": "testMethod",
+      "value": "OpenCloseLoginPageTest"
+    },
+    {
+      "name": "package",
+      "value": "NUnitTest_LT.Tests.Login.LoginTests"
+    }
+  ],
+  "links": [],
+  "name": "OpenCloseLoginPageTest",
+  "status": "passed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false
+  },
+  "stage": "finished",
+  "steps": [
+    {
+      "name": "OpenCloseLoginPageTest",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [
+        {
+          "name": "Paspausti 'Prisijungti' mygtuką.",
+          "status": "passed",
+          "statusDetails": {
+            "known": false,
+            "muted": false,
+            "flaky": false
+          },
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1586520154825,
+          "stop": 1586520154975
+        },
+        {
+          "name": "Paspausti 'Prisijungti' mygtuką.",
+          "status": "passed",
+          "statusDetails": {
+            "known": false,
+            "muted": false,
+            "flaky": false
+          },
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1586520155034,
+          "stop": 1586520155107
+        }
+      ],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "d11af93d99f64e77b39024c48f4dd838-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1586520142907,
+      "stop": 1586520155353
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1586520142906,
+  "stop": 1586520155358
+}

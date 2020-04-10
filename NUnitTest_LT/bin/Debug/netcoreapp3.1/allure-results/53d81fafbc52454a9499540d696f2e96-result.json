@@ -1,0 +1,63 @@
+{
+  "uuid": "9b6dd327-ce76-4e03-92ff-9c913bc87b2e-tr-0-1002",
+  "historyId": "NUnitTest_LT.Tests.Login.LoginTests.ValidUserLoginTest",
+  "fullName": "NUnitTest_LT.Tests.Login.LoginTests.ValidUserLoginTest",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "DESKTOP-IUDBFSQ"
+    },
+    {
+      "name": "testClass",
+      "value": "NUnitTest_LT.Tests.Login.LoginTests"
+    },
+    {
+      "name": "testMethod",
+      "value": "ValidUserLoginTest"
+    },
+    {
+      "name": "package",
+      "value": "NUnitTest_LT.Tests.Login.LoginTests"
+    }
+  ],
+  "links": [],
+  "name": "ValidUserLoginTest",
+  "status": "passed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false
+  },
+  "stage": "finished",
+  "steps": [
+    {
+      "name": "ValidUserLoginTest",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "2c0eba10053249c5be6992419a3cc23a-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1586519270853,
+      "stop": 1586519282567
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1586519270853,
+  "stop": 1586519282567
+}
