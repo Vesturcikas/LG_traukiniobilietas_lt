@@ -9,14 +9,14 @@ namespace NUnitTest_LT.Tests.Bilietai
     public class BilietaiTests : BaseTest
     {
         private BilietaiPage bilietaiPage;
-        private BilietaiAssretsPage navAssretsPage;
+        private BilietaiAssretsPage bilietaiAssertsPage;
 
         [SetUp]
         public void BeforeTests()
         {
             string testUrl = baseUrl;
             driver.Navigate().GoToUrl(testUrl);
-            navAssretsPage = new BilietaiAssretsPage(driver);
+            bilietaiAssertsPage = new BilietaiAssretsPage(driver);
             bilietaiPage = new BilietaiPage(driver);
             //CloseCookiesMessage();
         }
@@ -25,69 +25,49 @@ namespace NUnitTest_LT.Tests.Bilietai
         public void TopNavBilietai()
         {
             bilietaiPage.NavBilietaiClick();
-            navAssretsPage.AssertBilietai();        
+            bilietaiAssertsPage.AssertBilietai();        
         }
-        /*
+        
         [Test]
         public void SingleRadio()
         {
-            singleRadio.Click();
-            Assert.IsTrue(fromFront.Displayed);
-            Assert.IsTrue(toFront.Displayed);
-            Assert.IsTrue(departureDate.Displayed);
-            Assert.IsTrue(!arrivaleDate.Displayed);
-            Assert.IsTrue(countFront.Displayed);
+            bilietaiPage.OneWayClick();
+            bilietaiAssertsPage.AssertOneWay(false);            
         }
 
+        
         [Test]
         public void ReturnRadio()
         {
-            returnRadio.Click();
-            Assert.IsTrue(fromFront.Displayed);
-            Assert.IsTrue(toFront.Displayed);
-            Assert.IsTrue(departureDate.Displayed);
-            Assert.IsTrue(arrivaleDate.Displayed);
-            Assert.IsTrue(countFront.Displayed);
-        }
+            bilietaiPage.RoundTripClick();
+            bilietaiAssertsPage.AssertRoundTrip(false);            
+        }       
 
         [Test]
         public void FixedRadio()
         {
-            fixedRadio.Click();
-            Assert.IsTrue(fromFront.Displayed);
-            Assert.IsTrue(toFront.Displayed);
-            Assert.IsTrue(!departureDate.Displayed);
-            Assert.IsTrue(!arrivaleDate.Displayed);
-            Assert.IsTrue(!countFront.Displayed);
+            bilietaiPage.FixedTermClick();
+            bilietaiAssertsPage.AssertFixedTerm();           
         }
-
+        
         [Test]
         public void BuisnessClientCheckbox()
         {
-            buisnessClient.Click();
-            singleRadio.Click();
+            bilietaiPage
+                .BuisnessCustomerClick()
+                .OneWayClick();
 
-            //Assert.IsTrue(fromFront.Displayed);
-            //Assert.IsTrue(toFront.Displayed);
-            //Assert.IsTrue(departureDate.Displayed);
-            Assert.IsTrue(!arrivaleDate.Displayed);
-            Assert.IsTrue(!countFront.Displayed);
+            bilietaiAssertsPage.AssertOneWay(true);
 
-            returnRadio.Click();
-            //Assert.IsTrue(fromFront.Displayed);
-            //Assert.IsTrue(toFront.Displayed);
-            //Assert.IsTrue(departureDate.Displayed);
-            //Assert.IsTrue(arrivaleDate.Displayed);
-            Assert.IsTrue(!countFront.Displayed);
+            bilietaiPage.RoundTripClick();
 
-            fixedRadio.Click();
-            //Assert.IsTrue(fromFront.Displayed);
-            //Assert.IsTrue(toFront.Displayed);
-            Assert.IsTrue(!departureDate.Displayed);
-            Assert.IsTrue(!arrivaleDate.Displayed);
-            Assert.IsTrue(!countFront.Displayed);
+            bilietaiAssertsPage.AssertRoundTrip(true);
+
+            bilietaiPage.FixedTermClick();
+
+            bilietaiAssertsPage.AssertFixedTerm();        
         }
-        */
+        
         [TearDown]
         public void AfterTests()
         {

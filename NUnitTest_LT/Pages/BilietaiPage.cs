@@ -22,7 +22,7 @@ namespace NUnitTest_LT.Pages
         private IWebElement singleRadio => frontForm.FindElement(By.CssSelector(".front-single"));
         private IWebElement returnRadio => frontForm.FindElement(By.CssSelector(".front-return"));
         private IWebElement fixedRadio => frontForm.FindElement(By.CssSelector(".front-fixed"));
-        private IWebElement buisnessClient => frontForm.FindElement(By.CssSelector(".front-dir-tail"));
+        private IWebElement buisnessClientCheckbox => frontForm.FindElement(By.CssSelector(".form-checker"));
         private IWebElement fromFront => frontForm.FindElement(By.CssSelector(".front-from"));
         private IWebElement toFront => frontForm.FindElement(By.CssSelector(".front-to"));
         private IWebElement departureDate => frontForm.FindElement(By.CssSelector(".departureDatePickerTrigger"));
@@ -44,21 +44,41 @@ namespace NUnitTest_LT.Pages
         
         public BilietaiPage OneWayClick()
         {
+            AllureLifecycle.Instance.WrapInStep(() =>
+            {
+                singleRadio.Click();
+            },
+            "Pžymėti 'Į vieną pusę'.");
             return this;
         }
 
         public BilietaiPage RoundTripClick()
         {
+            AllureLifecycle.Instance.WrapInStep(() =>
+            {
+                returnRadio.Click();
+            },
+            "Pžymėti 'Į abi puses'.");
             return this;
         }
 
         public BilietaiPage FixedTermClick()
         {
+            AllureLifecycle.Instance.WrapInStep(() =>
+            {
+                fixedRadio.Click();
+            },
+            "Pžymėti 'Terminuotas'.");
             return this;
         }
 
         public BilietaiPage BuisnessCustomerClick()
         {
+            AllureLifecycle.Instance.WrapInStep(() =>
+            {
+                buisnessClientCheckbox.Click();
+            },
+               "Pžymėti 'Verslo klientas'.");
             return this;
         }
 
