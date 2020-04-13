@@ -9,7 +9,7 @@ namespace NUnitTest_LT.AssertsPages
         private IWebElement loginBox => driver.FindElement(By.CssSelector(".login-box"));
         private IWebElement loginSpan => driver.FindElement(By.CssSelector("span.login-span"));
         private IWebElement closeSpan => driver.FindElement(By.CssSelector("span.close-span"));
-        private IWebElement loginError => driver.FindElement(By.LinkText("Neteisingas prisijungimo vardas arba slaptažodis"));
+        private IWebElement loginError => driver.FindElement(By.XPath("//span[contains(.,'Neteisingas prisijungimo vardas arba slaptažodis')]"));
 
         
 
@@ -31,7 +31,7 @@ namespace NUnitTest_LT.AssertsPages
         public void AssertWrongEmailOrPassword()
         {
             Assert.That(loginError.Displayed);
-            //Assert.AreEqual(loginError.Text, "Neteisingas prisijungimo vardas arba slaptažodis");
+            //Assert.AreEqual("Neteisingas prisijungimo vardas arba slaptažodis", loginError.Text);
         }
 
     }

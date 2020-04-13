@@ -7,7 +7,7 @@ using System.Text;
 
 namespace NUnitTest_LT.Pages
 {
-    public class HomePage : BasePage
+    public class BilietaiPage : BasePage
     {        
         private IWebElement bilietaiNav => driver.FindElement(By.CssSelector(".top .nav .top-left a[href='/portal/']"));
         private IWebElement tvarkaraciaiNav => driver.FindElement(By.CssSelector(".top .nav .top-left a[href='/portal/routes-schedules']"));
@@ -30,9 +30,9 @@ namespace NUnitTest_LT.Pages
         private IWebElement countFront => frontForm.FindElement(By.CssSelector(".front-count"));
         private IWebElement searchButt => frontForm.FindElement(By.CssSelector("button"));
 
-        public HomePage(IWebDriver driver) : base(driver) { }
+        public BilietaiPage(IWebDriver driver) : base(driver) { }
 
-        public HomePage NavBilietaiClick()
+        public BilietaiPage NavBilietaiClick()
         {
             AllureLifecycle.Instance.WrapInStep(() =>
             {
@@ -42,84 +42,84 @@ namespace NUnitTest_LT.Pages
             return this;
         }
         
-        public HomePage OneWayClick()
+        public BilietaiPage OneWayClick()
         {
             return this;
         }
 
-        public HomePage RoundTripClick()
+        public BilietaiPage RoundTripClick()
         {
             return this;
         }
 
-        public HomePage FixedTermClick()
+        public BilietaiPage FixedTermClick()
         {
             return this;
         }
 
-        public HomePage BuisnessCustomerClick()
+        public BilietaiPage BuisnessCustomerClick()
         {
             return this;
         }
 
-        public HomePage SelectFrom()
+        public BilietaiPage SelectFrom()
         {
             return this;
         }
 
-        public HomePage SelectTo()
+        public BilietaiPage SelectTo()
         {
             return this;
         }
 
-        public HomePage SelectDepartureDate()
+        public BilietaiPage SelectDepartureDate()
         {
             return this;
         }
 
-        public HomePage SelectArrivalDate()
+        public BilietaiPage SelectArrivalDate()
         {
             return this;
         }
 
-        public HomePage PassengerCountClick()
+        public BilietaiPage PassengerCountClick()
         {
             return this;
         }
 
-        public HomePage PassangerAdultsAdd()
+        public BilietaiPage PassangerAdultsAdd()
         {
             return this;
         }
-        public HomePage PassangerAdultsRemove()
-        {
-            return this;
-        }
-
-        public HomePage PassangerChildrenAdd()
-        {
-            return this;
-        }
-        public HomePage PassangerChildrenRemove()
+        public BilietaiPage PassangerAdultsRemove()
         {
             return this;
         }
 
-        public HomePage PassangerAnimalsAdd()
+        public BilietaiPage PassangerChildrenAdd()
         {
             return this;
         }
-        public HomePage PassangerAnimalsRemove()
-        {
-            return this;
-        }
-
-        public HomePage SerchButtonClick()
+        public BilietaiPage PassangerChildrenRemove()
         {
             return this;
         }
 
-        public HomePage SignInClick()
+        public BilietaiPage PassangerAnimalsAdd()
+        {
+            return this;
+        }
+        public BilietaiPage PassangerAnimalsRemove()
+        {
+            return this;
+        }
+
+        public BilietaiPage SerchButtonClick()
+        {
+            return this;
+        }
+
+        public BilietaiPage SignInClick()
         {
             AllureLifecycle.Instance.WrapInStep(() => 
             {

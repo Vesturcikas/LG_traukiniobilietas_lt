@@ -3,12 +3,12 @@ using NUnitTest_LT.Pages;
 using NUnitTest_LT.AssertsPages;
 using NUnit.Allure.Core;
 
-namespace NUnitTest_LT.Tests.NavTests
+namespace NUnitTest_LT.Tests.Bilietai
 {
     [AllureNUnit]
     public class BilietaiTests : BaseTest
     {
-        private HomePage homePage;
+        private BilietaiPage bilietaiPage;
         private BilietaiAssretsPage navAssretsPage;
 
         [SetUp]
@@ -17,14 +17,14 @@ namespace NUnitTest_LT.Tests.NavTests
             string testUrl = baseUrl;
             driver.Navigate().GoToUrl(testUrl);
             navAssretsPage = new BilietaiAssretsPage(driver);
-            homePage = new HomePage(driver);
-            CloseCookiesMessage();
+            bilietaiPage = new BilietaiPage(driver);
+            //CloseCookiesMessage();
         }
 
         [Test]
         public void TopNavBilietai()
         {
-            homePage.NavBilietaiClick();
+            bilietaiPage.NavBilietaiClick();
             navAssretsPage.AssertBilietai();        
         }
         /*

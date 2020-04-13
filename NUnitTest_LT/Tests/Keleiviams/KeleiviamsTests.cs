@@ -2,10 +2,10 @@
 using NUnit.Framework;
 using NUnit.Allure.Core;
 
-namespace NUnitTest_LT.Tests.NavTests
+namespace NUnitTest_LT.Tests.Keleiviams
 {
     [AllureNUnit]
-    public class NavKeleiviams : BaseTest
+    public class KeleiviamsTests : BaseTest
     {
         private IWebElement topNav => driver.FindElement(By.CssSelector(".nav"));
         private IWebElement keleiviamsNav => topNav.FindElement(By.CssSelector(".top-passenger"));

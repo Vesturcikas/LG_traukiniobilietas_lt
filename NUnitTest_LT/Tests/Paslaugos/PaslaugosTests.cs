@@ -2,10 +2,10 @@
 using NUnit.Framework;
 using NUnit.Allure.Core;
 
-namespace NUnitTest_LT.Tests.NavTests
+namespace NUnitTest_LT.Tests.Paslaugos
 {
     [AllureNUnit]
-    public class NavPaslaugos : BaseTest
+    public class PaslaugosTests : BaseTest
     {
         private IWebElement topNav => driver.FindElement(By.CssSelector(".nav"));
         private IWebElement paslaugosNav => topNav.FindElement(By.CssSelector(".top-business"));
