@@ -1,9 +1,11 @@
 ﻿using NUnit.Framework;
 using NUnitTest_LT.Pages;
 using NUnitTest_LT.AssertsPages;
+using NUnit.Allure.Core;
 
 namespace NUnitTest_LT.Tests.NavTests
 {
+    [AllureNUnit]
     public class BilietaiTests : BaseTest
     {
         private HomePage homePage;

@@ -1,4 +1,6 @@
 ﻿using OpenQA.Selenium;
+using NUnit.Allure.Core;
+using Allure.Commons;
 
 namespace NUnitTest_LT.Pages
 {
@@ -15,28 +17,56 @@ namespace NUnitTest_LT.Pages
 
         
 
-        public LoginPage InputEmail()
+        public LoginPage InputEmail(string useremail)
         {
+            AllureLifecycle.Instance.WrapInStep(() =>
+            {
+                inputEmail.Clear();
+                inputEmail.SendKeys(useremail);
+            }, 
+            $"Enter user email {useremail}");
             return this;
         }
 
-        public LoginPage InputPasword()
+        public LoginPage InputPasword(string userpassword)
         {
+            AllureLifecycle.Instance.WrapInStep(() =>
+            {
+                inputPassword.Clear();
+                inputPassword.SendKeys(userpassword);
+            },
+            "Enter user password: **********");
+
             return this;
         }
 
         public LoginPage SignInButtonClick()
         {
+            AllureLifecycle.Instance.WrapInStep(() => 
+            {
+                buttonSignIn.Click();
+            },
+            "Click 'Sign in' button.");
             return this;
         }
 
         public LoginPage PasswordRemainderClick()
         {
+            AllureLifecycle.Instance.WrapInStep(() =>
+            {
+                linkPasswordReminder.Click();
+            },
+            "Click 'Password reminder' link.");
             return this;
         }
 
         public LoginPage RegisterButtonClick()
         {
+            AllureLifecycle.Instance.WrapInStep(() =>
+            {
+                buttonRegister.Click();
+            },
+            "Click 'REGISTER' button");
             return this;
         }
     }

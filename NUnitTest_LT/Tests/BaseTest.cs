@@ -19,14 +19,8 @@ namespace NUnitTest_LT.Tests
         [SetUp]
         public void BeforeEveryTest()
         {
-            baseUrl = "https://www.traukiniobilietas.lt/portal";
-            var chromeOptions = new ChromeOptions();
-            chromeOptions.PageLoadStrategy = PageLoadStrategy.Eager;
-            driver = new ChromeDriver(chromeOptions);
-            driver.Manage().Window.Maximize();
-
-            //Setting up the Implicit Wait
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            baseUrl = "https://www.traukiniobilietas.lt/portal";            
+            driver = MyDriver.InitDriver(Browser.Chrome);
 
             //setting up the wait
             wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));

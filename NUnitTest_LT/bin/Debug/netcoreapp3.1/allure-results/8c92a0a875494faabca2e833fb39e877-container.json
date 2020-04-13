@@ -1,8 +1,8 @@
 {
-  "uuid": "851865a6-bf62-44a5-8c9c-72820a6cb941-tc-0-1000",
-  "name": "NUnitTest_LT.Tests.Login.LoginTests.ValidUserLoginTest",
+  "uuid": "050ecdce-c03a-45ef-910b-fed4789e61cd-tc-0-1000",
+  "name": "NUnitTest_LT.Tests.Login.LoginTests.WrongPasswordLoginTest",
   "children": [
-    "9b6dd327-ce76-4e03-92ff-9c913bc87b2e-tr-0-1002"
+    "315dfb33-0d13-40fb-8ece-0b96e3080123-tr-0-1002"
   ],
   "befores": [
     {
@@ -17,8 +17,8 @@
       "steps": [],
       "attachments": [],
       "parameters": [],
-      "start": 1586519282520,
-      "stop": 1586519282520
+      "start": 1586793763630,
+      "stop": 1586793763630
     },
     {
       "name": "BeforeTest",
@@ -32,8 +32,8 @@
       "steps": [],
       "attachments": [],
       "parameters": [],
-      "start": 1586519282520,
-      "stop": 1586519282520
+      "start": 1586793763630,
+      "stop": 1586793763630
     }
   ],
   "afters": [
@@ -49,8 +49,8 @@
       "steps": [],
       "attachments": [],
       "parameters": [],
-      "start": 1586519282520,
-      "stop": 1586519282520
+      "start": 1586793763630,
+      "stop": 1586793763630
     },
     {
       "name": "AfterTests",
@@ -64,11 +64,11 @@
       "steps": [],
       "attachments": [],
       "parameters": [],
-      "start": 1586519282520,
-      "stop": 1586519282520
+      "start": 1586793763630,
+      "stop": 1586793763630
     }
   ],
   "links": [],
-  "start": 1586519270853,
-  "stop": 1586519282569
+  "start": 1586793745815,
+  "stop": 1586793763693
 }

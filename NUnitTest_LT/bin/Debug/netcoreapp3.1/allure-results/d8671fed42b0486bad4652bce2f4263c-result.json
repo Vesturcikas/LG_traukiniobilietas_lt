@@ -1,0 +1,128 @@
+{
+  "uuid": "315dfb33-0d13-40fb-8ece-0b96e3080123-tr-0-1002",
+  "historyId": "NUnitTest_LT.Tests.Login.LoginTests.WrongPasswordLoginTest",
+  "fullName": "NUnitTest_LT.Tests.Login.LoginTests.WrongPasswordLoginTest",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "DESKTOP-IUDBFSQ"
+    },
+    {
+      "name": "testClass",
+      "value": "NUnitTest_LT.Tests.Login.LoginTests"
+    },
+    {
+      "name": "testMethod",
+      "value": "WrongPasswordLoginTest"
+    },
+    {
+      "name": "package",
+      "value": "NUnitTest_LT.Tests.Login.LoginTests"
+    }
+  ],
+  "links": [],
+  "name": "WrongPasswordLoginTest",
+  "status": "failed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false,
+    "message": "OpenQA.Selenium.NoSuchElementException : no such element: Unable to locate element: {\"method\":\"link text\",\"selector\":\"Neteisingas prisijungimo vardas arba slaptažodis\"}\n  (Session info: chrome=80.0.3987.163)",
+    "trace": "   at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByLinkText(String linkText)\r\n   at OpenQA.Selenium.By.<>c__DisplayClass17_0.<LinkText>b__0(ISearchContext context)\r\n   at OpenQA.Selenium.By.FindElement(ISearchContext context)\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)\r\n   at NUnitTest_LT.AssertsPages.LoginAssertsPage.get_loginError() in D:\\C#\\Automatinis_Testavimas\\LG_traukiniobilietas_lt\\NUnitTest_LT\\AssertsPages\\LoginAssertsPage.cs:line 12\r\n   at NUnitTest_LT.AssertsPages.LoginAssertsPage.AssertWrongEmailOrPassword() in D:\\C#\\Automatinis_Testavimas\\LG_traukiniobilietas_lt\\NUnitTest_LT\\AssertsPages\\LoginAssertsPage.cs:line 33\r\n   at NUnitTest_LT.Tests.Login.LoginTests.WrongPasswordLoginTest() in D:\\C#\\Automatinis_Testavimas\\LG_traukiniobilietas_lt\\NUnitTest_LT\\Tests\\Login\\LoginTests.cs:line 46"
+  },
+  "stage": "finished",
+  "steps": [
+    {
+      "name": "WrongPasswordLoginTest",
+      "status": "failed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false,
+        "message": "OpenQA.Selenium.NoSuchElementException : no such element: Unable to locate element: {\"method\":\"link text\",\"selector\":\"Neteisingas prisijungimo vardas arba slaptažodis\"}\n  (Session info: chrome=80.0.3987.163)",
+        "trace": "   at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByLinkText(String linkText)\r\n   at OpenQA.Selenium.By.<>c__DisplayClass17_0.<LinkText>b__0(ISearchContext context)\r\n   at OpenQA.Selenium.By.FindElement(ISearchContext context)\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)\r\n   at NUnitTest_LT.AssertsPages.LoginAssertsPage.get_loginError() in D:\\C#\\Automatinis_Testavimas\\LG_traukiniobilietas_lt\\NUnitTest_LT\\AssertsPages\\LoginAssertsPage.cs:line 12\r\n   at NUnitTest_LT.AssertsPages.LoginAssertsPage.AssertWrongEmailOrPassword() in D:\\C#\\Automatinis_Testavimas\\LG_traukiniobilietas_lt\\NUnitTest_LT\\AssertsPages\\LoginAssertsPage.cs:line 33\r\n   at NUnitTest_LT.Tests.Login.LoginTests.WrongPasswordLoginTest() in D:\\C#\\Automatinis_Testavimas\\LG_traukiniobilietas_lt\\NUnitTest_LT\\Tests\\Login\\LoginTests.cs:line 46"
+      },
+      "stage": "finished",
+      "steps": [
+        {
+          "name": "Paspausti 'Prisijungti' mygtuką.",
+          "status": "passed",
+          "statusDetails": {
+            "known": false,
+            "muted": false,
+            "flaky": false
+          },
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1586793752318,
+          "stop": 1586793752553
+        },
+        {
+          "name": "Enter user email vestas1976@gmail.com",
+          "status": "passed",
+          "statusDetails": {
+            "known": false,
+            "muted": false,
+            "flaky": false
+          },
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1586793752815,
+          "stop": 1586793753112
+        },
+        {
+          "name": "Enter user password: **********",
+          "status": "passed",
+          "statusDetails": {
+            "known": false,
+            "muted": false,
+            "flaky": false
+          },
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1586793753112,
+          "stop": 1586793753264
+        },
+        {
+          "name": "Click 'Sign in' button.",
+          "status": "passed",
+          "statusDetails": {
+            "known": false,
+            "muted": false,
+            "flaky": false
+          },
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1586793753264,
+          "stop": 1586793753347
+        }
+      ],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "7e865419bc234e0180d9d7a101ef4688-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1586793745815,
+      "stop": 1586793763636
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1586793745815,
+  "stop": 1586793763636
+}

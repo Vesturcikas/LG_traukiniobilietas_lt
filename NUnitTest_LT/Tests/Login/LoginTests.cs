@@ -20,7 +20,7 @@ namespace NUnitTest_LT.Tests.Login
             homePage = new HomePage(driver);
             loginPage = new LoginPage(driver);
             loginAssertsPage = new LoginAssertsPage(driver);
-            CloseCookiesMessage();
+            //CloseCookiesMessage();
         }
 
         [Test]
@@ -33,10 +33,17 @@ namespace NUnitTest_LT.Tests.Login
         }
 
         [Test]
-        public void ValidUserLoginTest()
+        public void WrongPasswordLoginTest()
         {
             homePage.SignInClick();
             loginAssertsPage.AssertIsOpenLoginPage();
+
+            loginPage
+                .InputEmail(User.DefaultUser.Useremail)
+                .InputPasword(User.DefaultUser.Password)
+                .SignInButtonClick();
+
+            loginAssertsPage.AssertWrongEmailOrPassword();
         }
 
         [TearDown]

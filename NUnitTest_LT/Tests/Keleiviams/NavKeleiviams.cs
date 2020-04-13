@@ -1,8 +1,10 @@
 ﻿using OpenQA.Selenium;
 using NUnit.Framework;
+using NUnit.Allure.Core;
 
 namespace NUnitTest_LT.Tests.NavTests
 {
+    [AllureNUnit]
     public class NavKeleiviams : BaseTest
     {
         private IWebElement topNav => driver.FindElement(By.CssSelector(".nav"));

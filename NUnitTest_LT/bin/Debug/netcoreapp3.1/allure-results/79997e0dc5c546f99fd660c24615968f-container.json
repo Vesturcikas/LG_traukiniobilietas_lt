@@ -1,8 +1,8 @@
 {
-  "uuid": "f6375bfe-d0f3-40d8-a7db-a09712305cac-tc-0-1000",
+  "uuid": "8cf31a45-5cef-46b0-aca2-b2798ce8f6c8-tc-0-1000",
   "name": "NUnitTest_LT.Tests.Login.LoginTests.OpenCloseLoginPageTest",
   "children": [
-    "085c030a-d7f9-4272-9450-7851660fc5ab-tr-0-1001"
+    "1da71f0b-a0c4-475a-9d54-973fad439b9e-tr-0-1001"
   ],
   "befores": [
     {
@@ -17,8 +17,8 @@
       "steps": [],
       "attachments": [],
       "parameters": [],
-      "start": 1586519270813,
-      "stop": 1586519270813
+      "start": 1586791307488,
+      "stop": 1586791307488
     },
     {
       "name": "BeforeTest",
@@ -32,8 +32,8 @@
       "steps": [],
       "attachments": [],
       "parameters": [],
-      "start": 1586519270813,
-      "stop": 1586519270813
+      "start": 1586791307488,
+      "stop": 1586791307488
     }
   ],
   "afters": [
@@ -49,8 +49,8 @@
       "steps": [],
       "attachments": [],
       "parameters": [],
-      "start": 1586519270813,
-      "stop": 1586519270813
+      "start": 1586791307489,
+      "stop": 1586791307489
     },
     {
       "name": "AfterTests",
@@ -64,11 +64,11 @@
       "steps": [],
       "attachments": [],
       "parameters": [],
-      "start": 1586519270813,
-      "stop": 1586519270813
+      "start": 1586791307489,
+      "stop": 1586791307489
     }
   ],
   "links": [],
-  "start": 1586519258869,
-  "stop": 1586519270843
+  "start": 1586791298923,
+  "stop": 1586791307517
 }

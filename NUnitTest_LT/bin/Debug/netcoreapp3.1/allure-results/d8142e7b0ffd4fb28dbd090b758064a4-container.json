@@ -1,0 +1,74 @@
+{
+  "uuid": "b11a1b1b-798a-4a64-b9dd-313ebe112935-tc-0-1000",
+  "name": "NUnitTest_LT.Tests.Login.LoginTests.OpenCloseLoginPageTest",
+  "children": [
+    "3f10ce9f-d533-4fee-913d-5853606aae70-tr-0-1001"
+  ],
+  "befores": [
+    {
+      "name": "BeforeEveryTest",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1586793397571,
+      "stop": 1586793397571
+    },
+    {
+      "name": "BeforeTest",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1586793397572,
+      "stop": 1586793397572
+    }
+  ],
+  "afters": [
+    {
+      "name": "AfterEveryTest",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1586793397572,
+      "stop": 1586793397572
+    },
+    {
+      "name": "AfterTests",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1586793397572,
+      "stop": 1586793397572
+    }
+  ],
+  "links": [],
+  "start": 1586793390561,
+  "stop": 1586793397603
+}

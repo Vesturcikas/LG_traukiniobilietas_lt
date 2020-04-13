@@ -34,7 +34,11 @@ namespace NUnitTest_LT.Pages
 
         public HomePage NavBilietaiClick()
         {
-            bilietaiNav.Click();
+            AllureLifecycle.Instance.WrapInStep(() =>
+            {
+                bilietaiNav.Click();
+            },
+            "Paspausti 'Bilietai'.");            
             return this;
         }
         

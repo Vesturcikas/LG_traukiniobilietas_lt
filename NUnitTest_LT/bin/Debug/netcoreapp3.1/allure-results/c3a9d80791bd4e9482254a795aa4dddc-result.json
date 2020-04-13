@@ -1,5 +1,5 @@
 {
-  "uuid": "085c030a-d7f9-4272-9450-7851660fc5ab-tr-0-1001",
+  "uuid": "1da71f0b-a0c4-475a-9d54-973fad439b9e-tr-0-1001",
   "historyId": "NUnitTest_LT.Tests.Login.LoginTests.OpenCloseLoginPageTest",
   "fullName": "NUnitTest_LT.Tests.Login.LoginTests.OpenCloseLoginPageTest",
   "labels": [
@@ -43,21 +43,52 @@
         "flaky": false
       },
       "stage": "finished",
-      "steps": [],
+      "steps": [
+        {
+          "name": "Paspausti 'Prisijungti' mygtuką.",
+          "status": "passed",
+          "statusDetails": {
+            "known": false,
+            "muted": false,
+            "flaky": false
+          },
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1586791306602,
+          "stop": 1586791307096
+        },
+        {
+          "name": "Paspausti 'Prisijungti' mygtuką.",
+          "status": "passed",
+          "statusDetails": {
+            "known": false,
+            "muted": false,
+            "flaky": false
+          },
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1586791307252,
+          "stop": 1586791307308
+        }
+      ],
       "attachments": [
         {
           "name": "Console Output",
-          "source": "c3c7811aad7e4cc1b32ce5aff453d7ef-attachment.txt",
+          "source": "82c5abd4e0e44bcab8f2f84e390b0114-attachment.txt",
           "type": "text/plain"
         }
       ],
       "parameters": [],
-      "start": 1586519258874,
-      "stop": 1586519270819
+      "start": 1586791298926,
+      "stop": 1586791307491
     }
   ],
   "attachments": [],
   "parameters": [],
-  "start": 1586519258873,
-  "stop": 1586519270823
+  "start": 1586791298925,
+  "stop": 1586791307495
 }
