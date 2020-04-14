@@ -2,6 +2,7 @@
 using NUnitTest_LT.Pages;
 using NUnitTest_LT.AssertsPages;
 using NUnit.Allure.Core;
+using System;
 
 namespace NUnitTest_LT.Tests.Bilietai
 {
@@ -59,13 +60,37 @@ namespace NUnitTest_LT.Tests.Bilietai
 
             bilietaiAssertsPage.AssertOneWay(true);
 
-            bilietaiPage.RoundTripClick();
+            bilietaiPage.RoundTripClick();            
 
             bilietaiAssertsPage.AssertRoundTrip(true);
 
             bilietaiPage.FixedTermClick();
 
             bilietaiAssertsPage.AssertFixedTerm();        
+        }
+
+        [Test]
+        public void ChangingLanguage()
+        {
+            bilietaiPage.NavKalbaClick();
+
+            bilietaiAssertsPage.AssertKalbaSubMenu();            
+            
+            bilietaiPage.KalbaRUClick();
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
+
+            bilietaiAssertsPage.AssertKalbaRU();
+            
+            bilietaiPage.KalbaENClick();
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
+
+            bilietaiAssertsPage.AssertKalbaEN();
+
+            bilietaiPage.KalbaLTClick();
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
+
+            bilietaiAssertsPage.AssertKalbaLT();
+
         }
         
         [TearDown]

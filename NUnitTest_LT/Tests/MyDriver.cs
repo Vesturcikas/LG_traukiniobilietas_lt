@@ -21,7 +21,7 @@ namespace NUnitTest_LT.Tests
             }
 
             //Setting up the Implicit Wait
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
 
             return driver;
         }
@@ -31,7 +31,7 @@ namespace NUnitTest_LT.Tests
             ChromeOptions chromeOptions = new ChromeOptions();
             chromeOptions.AddArgument("start-maximized");
             //options.AddArgument("incognito");
-            //chromeOptions.PageLoadStrategy = PageLoadStrategy.Eager;
+            chromeOptions.PageLoadStrategy = PageLoadStrategy.Normal;
             return chromeOptions;
         }
 

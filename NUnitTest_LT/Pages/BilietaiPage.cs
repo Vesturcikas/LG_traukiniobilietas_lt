@@ -1,6 +1,7 @@
 ﻿using Allure.Commons;
 using NUnit.Allure.Core;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -15,6 +16,11 @@ namespace NUnitTest_LT.Pages
         private IWebElement keleiviamsSubMenu => keleiviamsNav.FindElement(By.CssSelector(".submenu-wrap"));
         private IWebElement paslaugosNav => driver.FindElement(By.CssSelector(".top .nav .top-business"));
         private IWebElement paslaugosSubMenu => paslaugosNav.FindElement(By.CssSelector(".submenu-wrap"));
+        private IWebElement kalba => driver.FindElement(By.CssSelector(".top .nav .top-right .top-languages"));
+        private IWebElement kalbaSubMenu => kalba.FindElement(By.CssSelector(".submenu-wrap"));
+        private IWebElement kalbaLT => kalbaSubMenu.FindElement(By.CssSelector("a[href='/portal/lt']"));
+        private IWebElement kalbaEN => kalbaSubMenu.FindElement(By.CssSelector("a[href='/portal/en']"));
+        private IWebElement kalbaRU => kalbaSubMenu.FindElement(By.CssSelector("a[href='/portal/ru']"));
         private IWebElement login => driver.FindElement(By.CssSelector(".top .nav .top-right .logged-out"));
 
         //
@@ -41,7 +47,57 @@ namespace NUnitTest_LT.Pages
             "Paspausti 'Bilietai'.");            
             return this;
         }
-        
+
+        public BilietaiPage NavKalbaClick()
+        {
+            AllureLifecycle.Instance.WrapInStep(() =>
+            {
+                kalba.Click();
+            },
+            "Paspausti kalbos pasirinkimą.");
+            return this;
+        }
+
+        public BilietaiPage KalbaLTClick()
+        {
+            AllureLifecycle.Instance.WrapInStep(() =>
+            {
+                //Actions act = new Actions(driver);
+                act.MoveToElement(kalbaLT);                
+                act.Build();
+                act.Perform();
+            },
+            "Pasirinkti LT kalbą.");
+            
+            return this;
+        }
+
+        public BilietaiPage KalbaENClick()
+        {
+            AllureLifecycle.Instance.WrapInStep(() =>
+            {
+                Actions act = new Actions(driver);
+                act.MoveToElement(kalbaEN);
+                act.Build();
+                act.Perform();
+            },
+            "Pasirinkti EN kalbą.");
+            return this;
+        }
+
+        public BilietaiPage KalbaRUClick()
+        {
+            AllureLifecycle.Instance.WrapInStep(() =>
+            {
+                Actions act = new Actions(driver);
+                act.MoveToElement(kalbaRU);
+                act.Build();
+                act.Perform();
+            },
+            "Pasirinkti RU kalbą.");
+            return this;
+        }
+
         public BilietaiPage OneWayClick()
         {
             AllureLifecycle.Instance.WrapInStep(() =>

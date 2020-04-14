@@ -6,8 +6,11 @@ namespace NUnitTest_LT.AssertsPages
 {
     public class BilietaiAssretsPage : BasePage
     {
+        private IWebElement kalba => driver.FindElement(By.CssSelector(".top .nav .top-right .top-languages"));
+        private IWebElement kalbaSubMenu => kalba.FindElement(By.CssSelector(".submenu-wrap"));
         //private IWebElement keleiviamsSubMenu => driver.FindElement(By.CssSelector("...."));
         private IWebElement frontForm => driver.FindElement(By.CssSelector(".front-form"));
+        private IWebElement frontTitle => driver.FindElement(By.CssSelector(".front-title > h1"));
         private IWebElement fromFront => frontForm.FindElement(By.CssSelector(".front-from"));
         private IWebElement toFront => frontForm.FindElement(By.CssSelector(".front-to"));
         private IWebElement departureDate => frontForm.FindElement(By.CssSelector(".departureDatePickerTrigger"));
@@ -21,6 +24,26 @@ namespace NUnitTest_LT.AssertsPages
         public void AssertBilietai()
         {
             Assert.AreEqual("https://www.traukiniobilietas.lt/portal/", driver.Url);
+        }
+
+        public void AssertKalbaSubMenu()
+        {
+            Assert.IsTrue(kalbaSubMenu.Displayed);
+        }
+
+        public void AssertKalbaLT()
+        {
+            Assert.AreEqual("Kur keliausite šiandien?", frontTitle.Text);
+        }
+
+        public void AssertKalbaEN()
+        {
+            Assert.AreEqual("Where would you like to go today?", frontTitle.Text);
+        }
+
+        public void AssertKalbaRU()
+        {
+            Assert.AreEqual("Куда  отправитесь сегодня?", frontTitle.Text);
         }
 
         public void AssertOneWay(bool bchbox)
