@@ -15,8 +15,7 @@ namespace NUnitTest_LT.Tests.Paslaugos
         public void BeforeTests()
         {
             string testUrl = baseUrl;
-            driver.Navigate().GoToUrl(testUrl);
-            //CloseCookiesMessage();
+            driver.Navigate().GoToUrl(testUrl);           
         }
 
         [Test]

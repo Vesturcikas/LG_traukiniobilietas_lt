@@ -35,17 +35,29 @@ namespace NUnitTest_LT.AssertsPages
 
         public void AssertKalbaLT()
         {
+            Assert.AreEqual("https://www.traukiniobilietas.lt/portal/lt", driver.Url);
+
+            IWebElement frontTitle = driver.FindElement(By.CssSelector(".front-title > h1"));
+
             Assert.AreEqual("Kur keliausite šiandien?", frontTitle.Text);
         }
 
         public void AssertKalbaEN()
         {
+            Assert.AreEqual("https://www.traukiniobilietas.lt/portal/en", driver.Url);
+
+            IWebElement frontTitle = driver.FindElement(By.CssSelector(".front-title > h1"));
+
             Assert.AreEqual("Where would you like to go today?", frontTitle.Text);
         }
 
         public void AssertKalbaRU()
-        {
-            Assert.AreEqual("Куда  отправитесь сегодня?", frontTitle.Text);
+        {          
+            Assert.AreEqual("https://www.traukiniobilietas.lt/portal/ru", driver.Url);
+
+            IWebElement frontTitle = driver.FindElement(By.CssSelector(".front-title > h1"));
+
+            Assert.AreEqual("Куда отправитесь сегодня?", frontTitle.Text);
         }
 
         public void AssertOneWay(bool bchbox)

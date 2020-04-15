@@ -3,6 +3,7 @@ using NUnitTest_LT.Pages;
 using NUnitTest_LT.AssertsPages;
 using NUnit.Allure.Core;
 using System;
+using System.Threading;
 
 namespace NUnitTest_LT.Tests.Bilietai
 {
@@ -18,8 +19,7 @@ namespace NUnitTest_LT.Tests.Bilietai
             string testUrl = baseUrl;
             driver.Navigate().GoToUrl(testUrl);
             bilietaiAssertsPage = new BilietaiAssretsPage(driver);
-            bilietaiPage = new BilietaiPage(driver);
-            //CloseCookiesMessage();
+            bilietaiPage = new BilietaiPage(driver);            
         }
 
         [Test]
@@ -73,24 +73,22 @@ namespace NUnitTest_LT.Tests.Bilietai
         public void ChangingLanguage()
         {
             bilietaiPage.NavKalbaClick();
-
+            
             bilietaiAssertsPage.AssertKalbaSubMenu();            
             
             bilietaiPage.KalbaRUClick();
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
-
+                 
             bilietaiAssertsPage.AssertKalbaRU();
-            
-            bilietaiPage.KalbaENClick();
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
 
+            bilietaiPage.NavKalbaClick();            
+            bilietaiPage.KalbaENClick();
+                       
             bilietaiAssertsPage.AssertKalbaEN();
 
+            bilietaiPage.NavKalbaClick();            
             bilietaiPage.KalbaLTClick();
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
-
-            bilietaiAssertsPage.AssertKalbaLT();
-
+                       
+            bilietaiAssertsPage.AssertKalbaLT();            
         }
 
         [Test]
@@ -98,8 +96,13 @@ namespace NUnitTest_LT.Tests.Bilietai
         {
             string adultsCount = "1";
             string passengersCount = "1";
+            string travelFrom = "Kaunas";
+            string travelTo = "Vilnius";
+
             bilietaiPage
                 .OneWayClick()
+                .SelectFrom(travelFrom)
+                .SelectTo(travelTo)
                 .PassengerCountClick()
                 .PassangerAdultsAdd();
             adultsCount = "2";
@@ -115,6 +118,8 @@ namespace NUnitTest_LT.Tests.Bilietai
 
             bilietaiAssertsPage.AssertAdultsValue(adultsCount);
             bilietaiAssertsPage.AssertPassangersCount(passengersCount);
+
+            
         }
         
         [TearDown]

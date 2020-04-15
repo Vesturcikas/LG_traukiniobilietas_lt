@@ -2,6 +2,7 @@
 using NUnitTest_LT.AssertsPages;
 using NUnit.Framework;
 using NUnit.Allure.Core;
+using System.Threading;
 
 namespace NUnitTest_LT.Tests.Login
 {
@@ -19,8 +20,7 @@ namespace NUnitTest_LT.Tests.Login
             driver.Navigate().GoToUrl(testUrl);            
             bilietaiPage = new BilietaiPage(driver);
             loginPage = new LoginPage(driver);
-            loginAssertsPage = new LoginAssertsPage(driver);
-            //CloseCookiesMessage();
+            loginAssertsPage = new LoginAssertsPage(driver);            
         }
 
         [Test]
@@ -43,6 +43,8 @@ namespace NUnitTest_LT.Tests.Login
                 .InputPasword(User.DefaultUser.Password)
                 .SignInButtonClick();
 
+            Thread.Sleep(3000);
+            
             loginAssertsPage.AssertWrongEmailOrPassword();
         }
 

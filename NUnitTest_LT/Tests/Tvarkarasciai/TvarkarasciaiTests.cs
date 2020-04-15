@@ -14,8 +14,7 @@ namespace NUnitTest_LT.Tests.Tvarkarasciai
         public void BeforeTests()
         {
             string testUrl = baseUrl;
-            driver.Navigate().GoToUrl(testUrl);
-            //CloseCookiesMessage();
+            driver.Navigate().GoToUrl(testUrl);            
         }
 
         [Test]

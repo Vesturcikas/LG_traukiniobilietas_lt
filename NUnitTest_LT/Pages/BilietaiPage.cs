@@ -18,9 +18,9 @@ namespace NUnitTest_LT.Pages
         private IWebElement paslaugosSubMenu => paslaugosNav.FindElement(By.CssSelector(".submenu-wrap"));
         private IWebElement kalba => driver.FindElement(By.CssSelector(".top .nav .top-right .top-languages"));
         private IWebElement kalbaSubMenu => kalba.FindElement(By.CssSelector(".submenu-wrap"));
-        private IWebElement kalbaLT => kalbaSubMenu.FindElement(By.CssSelector("a[href='/portal/lt']"));
-        private IWebElement kalbaEN => kalbaSubMenu.FindElement(By.CssSelector("a[href='/portal/en']"));
-        private IWebElement kalbaRU => kalbaSubMenu.FindElement(By.CssSelector("a[href='/portal/ru']"));
+        //private IWebElement kalbaLT => kalbaSubMenu.FindElement(By.CssSelector("a[href='/portal/lt']"));
+        //private IWebElement kalbaEN => kalbaSubMenu.FindElement(By.CssSelector("a[href='/portal/en']"));
+        //private IWebElement kalbaRU => kalbaSubMenu.FindElement(By.CssSelector("a[href='/portal/ru']"));
         private IWebElement login => driver.FindElement(By.CssSelector(".top .nav .top-right .logged-out"));
 
         //
@@ -64,10 +64,8 @@ namespace NUnitTest_LT.Pages
         {
             AllureLifecycle.Instance.WrapInStep(() =>
             {
-                //Actions act = new Actions(driver);
-                act.MoveToElement(kalbaLT);                
-                act.Build();
-                act.Perform();
+                IWebElement kalbaLT = driver.FindElement(By.CssSelector("a[href='/portal/lt']"));
+                kalbaLT.Click();
             },
             "Pasirinkti LT kalbą.");
             
@@ -78,10 +76,8 @@ namespace NUnitTest_LT.Pages
         {
             AllureLifecycle.Instance.WrapInStep(() =>
             {
-                Actions act = new Actions(driver);
-                act.MoveToElement(kalbaEN);
-                act.Build();
-                act.Perform();
+                IWebElement kalbaEN = driver.FindElement(By.CssSelector("a[href='/portal/en']"));
+                kalbaEN.Click();
             },
             "Pasirinkti EN kalbą.");
             return this;
@@ -91,10 +87,8 @@ namespace NUnitTest_LT.Pages
         {
             AllureLifecycle.Instance.WrapInStep(() =>
             {
-                Actions act = new Actions(driver);
-                act.MoveToElement(kalbaRU);
-                act.Build();
-                act.Perform();
+                IWebElement kalbaRU = driver.FindElement(By.CssSelector("a[href='/portal/ru']"));
+                kalbaRU.Click();                
             },
             "Pasirinkti RU kalbą.");
             return this;
@@ -140,13 +134,25 @@ namespace NUnitTest_LT.Pages
             return this;
         }
 
-        public BilietaiPage SelectFrom()
+        public BilietaiPage SelectFrom(string from)
         {
+            AllureLifecycle.Instance.WrapInStep(() =>
+            {
+                IWebElement fromInput = fromFront.FindElement(By.CssSelector("input"));
+                fromInput.SendKeys(from);
+            },
+            "Įvesti 'Iš'.");
             return this;
         }
 
-        public BilietaiPage SelectTo()
+        public BilietaiPage SelectTo(string to)
         {
+            AllureLifecycle.Instance.WrapInStep(() =>
+            {
+                IWebElement toInput = toFront.FindElement(By.CssSelector("input"));
+                toInput.SendKeys(to);
+            },
+            "Įvesti 'Į'.");
             return this;
         }
 
@@ -209,6 +215,11 @@ namespace NUnitTest_LT.Pages
 
         public BilietaiPage SerchButtonClick()
         {
+            AllureLifecycle.Instance.WrapInStep(() =>
+            {
+                searchButt.Click();
+            },
+            "Paspausti 'Ieškoti'.");
             return this;
         }
 
