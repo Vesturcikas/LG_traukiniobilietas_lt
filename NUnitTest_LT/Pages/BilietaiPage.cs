@@ -34,6 +34,8 @@ namespace NUnitTest_LT.Pages
         private IWebElement departureDate => frontForm.FindElement(By.CssSelector(".departureDatePickerTrigger"));
         private IWebElement arrivaleDate => frontForm.FindElement(By.CssSelector(".arrivalDatePickerTrigger"));
         private IWebElement countFront => frontForm.FindElement(By.CssSelector(".front-count"));
+        private IWebElement buttonAdultsAdd => countFront.FindElement(By.CssSelector(".count-list .count-row:first-child .count-plus"));
+        private IWebElement buttonAdultsRemove => countFront.FindElement(By.CssSelector(".count-list .count-row:first-child .count-minus"));
         private IWebElement searchButt => frontForm.FindElement(By.CssSelector("button"));
 
         public BilietaiPage(IWebDriver driver) : base(driver) { }
@@ -160,15 +162,30 @@ namespace NUnitTest_LT.Pages
 
         public BilietaiPage PassengerCountClick()
         {
+            AllureLifecycle.Instance.WrapInStep(() =>
+            {
+                countFront.Click();
+            },
+            "Paspausti: keleivių kiekis.");
             return this;
         }
 
         public BilietaiPage PassangerAdultsAdd()
         {
+            AllureLifecycle.Instance.WrapInStep(() =>
+            {
+                buttonAdultsAdd.Click();
+            },
+            "Pridėti suaugusį keleivį.");
             return this;
         }
         public BilietaiPage PassangerAdultsRemove()
         {
+            AllureLifecycle.Instance.WrapInStep(() =>
+            {
+                buttonAdultsRemove.Click();
+            },
+            "Sumažinti suaugusių keleivių skaičių.");
             return this;
         }
 

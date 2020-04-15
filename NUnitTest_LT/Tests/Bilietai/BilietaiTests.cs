@@ -92,6 +92,30 @@ namespace NUnitTest_LT.Tests.Bilietai
             bilietaiAssertsPage.AssertKalbaLT();
 
         }
+
+        [Test]
+        public void SearchTicketsOneWayOneAdultsPerson()
+        {
+            string adultsCount = "1";
+            string passengersCount = "1";
+            bilietaiPage
+                .OneWayClick()
+                .PassengerCountClick()
+                .PassangerAdultsAdd();
+            adultsCount = "2";
+            passengersCount = "2";
+
+            bilietaiAssertsPage.AssertCountList();
+            bilietaiAssertsPage.AssertAdultsValue(adultsCount);
+            bilietaiAssertsPage.AssertPassangersCount(passengersCount);
+
+            bilietaiPage.PassangerAdultsRemove();
+            adultsCount = "1";
+            passengersCount = "1";
+
+            bilietaiAssertsPage.AssertAdultsValue(adultsCount);
+            bilietaiAssertsPage.AssertPassangersCount(passengersCount);
+        }
         
         [TearDown]
         public void AfterTests()
