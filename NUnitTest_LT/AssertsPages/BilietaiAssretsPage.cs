@@ -9,19 +9,13 @@ using System;
 namespace NUnitTest_LT.AssertsPages
 {
     public class BilietaiAssretsPage : BasePage
-    {
-        //private IWebElement kalba => driver.FindElement(By.CssSelector(".top .nav .top-right .top-languages"));
-        //private IWebElement kalbaSubMenu => kalba.FindElement(By.CssSelector(".submenu-wrap"));        
-        private IWebElement frontForm => driver.FindElement(By.CssSelector(".front-form"));
-        //private IWebElement frontTitle => driver.FindElement(By.CssSelector(".front-title > h1"));
+    {             
+        private IWebElement frontForm => driver.FindElement(By.CssSelector(".front-form"));        
         private IWebElement fromFront => frontForm.FindElement(By.CssSelector(".front-from"));
         private IWebElement toFront => frontForm.FindElement(By.CssSelector(".front-to"));
         private IWebElement departureDate => frontForm.FindElement(By.CssSelector(".departureDatePickerTrigger"));
         private IWebElement arrivalDate => frontForm.FindElement(By.CssSelector(".arrivalDatePickerTrigger"));
         private IWebElement countFront => frontForm.FindElement(By.CssSelector(".front-count"));
-        private IWebElement valuePassengersCount => countFront.FindElement(By.CssSelector(".form-input input"));
-        private IWebElement countList => countFront.FindElement(By.CssSelector(".count-list"));
-        private IWebElement valueAdultsCount => countFront.FindElement(By.CssSelector(".count-list .count-row:first-child .count-value"));
         private IWebElement buisnessClientMessage => frontForm.FindElement(By.CssSelector(".front-dir-tail"));
 
 
@@ -34,7 +28,7 @@ namespace NUnitTest_LT.AssertsPages
 
         public void AssertKalbaSubMenu()
         {
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
+            //WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
             IWebElement kalbaSubMenu = wait.Until(drv => drv.FindElement(By.CssSelector(".top .nav .top-right .top-languages .submenu-wrap")));
             Assert.IsTrue(kalbaSubMenu.Displayed);
         }
@@ -107,46 +101,58 @@ namespace NUnitTest_LT.AssertsPages
 
         public void AssertCountList()
         {
+            IWebElement countList = countFront.FindElement(By.CssSelector(".count-list"));
             Assert.IsTrue(countList.Displayed);
         }
 
         public void AssertAdultsValue(string adultsCount)
         {
+            IWebElement valueAdultsCount = countFront.FindElement(By.CssSelector(".count-list .count-row:first-child .count-value"));
             Assert.AreEqual(adultsCount, valueAdultsCount.Text);
         }
 
         public void AssertPassangersCount(string passengersCount)
         {
+            IWebElement valuePassengersCount = countFront.FindElement(By.CssSelector(".form-input input"));
             Assert.AreEqual(passengersCount, valuePassengersCount.GetAttribute("value"));
         }
 
         public void AssertFromInputError()
         {
             //string errorColorCode = "#FFF0F0";
-
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
-            IWebElement fromFront = wait.Until(drv => drv.FindElement(By.CssSelector(".front-form .front-from")));
-
-            string colorWebElement = fromFront.GetCssValue("background-color");
-
-            Color spalva = new Color();
-            spalva.ToString();
-
-            Assert.AreEqual("#FFF0F0", colorWebElement);
-
             //color: #fff0f0;
             //color: rgba(255, 240, 240, 1);
+
+            //WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
+            IWebElement fromFront = wait.Until(drv => drv.FindElement(By.CssSelector(".front-form .front-from input")));
+            string colorWebElement = fromFront.GetCssValue("background-color");           
+
+            Assert.AreEqual("rgba(255, 240, 240, 1)", colorWebElement);
+        }
+
+        public void AssertToInputError()
+        {
+            //string errorColorCode = "#FFF0F0";
+            //color: #fff0f0;
+            //color: rgba(255, 240, 240, 1);
+
+            //WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
+            IWebElement toFront = wait.Until(drv => drv.FindElement(By.CssSelector(".front-form .front-to input")));
+            string colorWebElement = toFront.GetCssValue("background-color");
+
+            Assert.AreEqual("rgba(255, 240, 240, 1)", colorWebElement);
         }
 
         public void AssertSearchResults()
         {
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-
         }
 
+        //-Neveikia
         public void AssertBuissnesCheckbox()
         {
-            
+            IWebElement buissnesCheckbox = frontForm.FindElement(By.CssSelector(".form-checkbox .form-checker"));
+            Assert.IsTrue(buissnesCheckbox.Selected);            
         }
     }
 }

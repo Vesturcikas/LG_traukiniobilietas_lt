@@ -34,7 +34,5 @@ namespace NUnitTest_LT.Pages
         {
             return this;
         }
-
-
     }
 }

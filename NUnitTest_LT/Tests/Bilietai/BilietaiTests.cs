@@ -41,6 +41,7 @@ namespace NUnitTest_LT.Tests.Bilietai
         public void ReturnRadio()
         {
             bilietaiPage.RoundTripClick();
+            Thread.Sleep(1000);
             bilietaiAssertsPage.AssertRoundTrip(false);            
         }       
 
@@ -48,6 +49,7 @@ namespace NUnitTest_LT.Tests.Bilietai
         public void FixedRadio()
         {
             bilietaiPage.FixedTermClick();
+            Thread.Sleep(1000);
             bilietaiAssertsPage.AssertFixedTerm();           
         }
         
@@ -57,15 +59,15 @@ namespace NUnitTest_LT.Tests.Bilietai
             bilietaiPage
                 .BuisnessCustomerClick()
                 .OneWayClick();
-
+            Thread.Sleep(1000);
             bilietaiAssertsPage.AssertOneWay(true);
 
-            bilietaiPage.RoundTripClick();            
-
+            bilietaiPage.RoundTripClick();
+            Thread.Sleep(1000);
             bilietaiAssertsPage.AssertRoundTrip(true);
 
             bilietaiPage.FixedTermClick();
-
+            Thread.Sleep(1000);
             bilietaiAssertsPage.AssertFixedTerm();        
         }
 
@@ -73,10 +75,9 @@ namespace NUnitTest_LT.Tests.Bilietai
         public void SearchButton()
         {
             bilietaiPage.SerchButtonClick();
-            Thread.Sleep(3000);
-
-            bilietaiAssertsPage.AssertSearchResults();
-
+            Thread.Sleep(1000);
+            bilietaiAssertsPage.AssertFromInputError();
+            bilietaiAssertsPage.AssertToInputError();
             Thread.Sleep(3000);
         }
 
@@ -147,12 +148,29 @@ namespace NUnitTest_LT.Tests.Bilietai
                 .SelectTo(travelTo);
 
             bilietaiPage.SerchButtonClick();
-            Thread.Sleep(3000);
+            Thread.Sleep(1000);
 
             bilietaiAssertsPage.AssertFromInputError();            
         }
 
-        
+        [Test]
+        public void WrongToInputField()
+        {
+            string travelFrom = "Kaunas";
+            string travelTo = "Vilnus";
+
+            bilietaiPage
+                .OneWayClick()
+                .SelectFrom(travelFrom)
+                .SelectTo(travelTo);
+
+            bilietaiPage.SerchButtonClick();
+            Thread.Sleep(1000);
+
+            bilietaiAssertsPage.AssertToInputError();
+        }
+
+
         [TearDown]
         public void AfterTests()
         {

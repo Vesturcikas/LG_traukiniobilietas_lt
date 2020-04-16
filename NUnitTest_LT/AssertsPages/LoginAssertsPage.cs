@@ -29,8 +29,8 @@ namespace NUnitTest_LT.AssertsPages
         public void AssertWrongEmailOrPassword()
         {
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(2));
-
             IWebElement loginError = wait.Until(drv => drv.FindElement(By.XPath("//span[contains(.,'Neteisingas prisijungimo vardas arba slaptažodis')]")));
+
             Assert.That(loginError.Displayed);
             Assert.AreEqual("Neteisingas prisijungimo vardas arba slaptažodis", loginError.Text);
         }

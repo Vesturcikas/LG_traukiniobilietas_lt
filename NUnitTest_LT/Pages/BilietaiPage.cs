@@ -10,34 +10,16 @@ using System.Text;
 namespace NUnitTest_LT.Pages
 {
     public class BilietaiPage : BasePage
-    {        
-        private IWebElement bilietaiNav => driver.FindElement(By.CssSelector(".top .nav .top-left a[href='/portal/']"));
-        private IWebElement tvarkaraciaiNav => driver.FindElement(By.CssSelector(".top .nav .top-left a[href='/portal/routes-schedules']"));
-        private IWebElement keleiviamsNav => driver.FindElement(By.CssSelector(".top .nav .top-passenger"));
-        private IWebElement keleiviamsSubMenu => keleiviamsNav.FindElement(By.CssSelector(".submenu-wrap"));
-        private IWebElement paslaugosNav => driver.FindElement(By.CssSelector(".top .nav .top-business"));
-        private IWebElement paslaugosSubMenu => paslaugosNav.FindElement(By.CssSelector(".submenu-wrap"));
-        private IWebElement kalba => driver.FindElement(By.CssSelector(".top .nav .top-right .top-languages"));
-        private IWebElement kalbaSubMenu => kalba.FindElement(By.CssSelector(".submenu-wrap"));
-        //private IWebElement kalbaLT => kalbaSubMenu.FindElement(By.CssSelector("a[href='/portal/lt']"));
-        //private IWebElement kalbaEN => kalbaSubMenu.FindElement(By.CssSelector("a[href='/portal/en']"));
-        //private IWebElement kalbaRU => kalbaSubMenu.FindElement(By.CssSelector("a[href='/portal/ru']"));
-        private IWebElement login => driver.FindElement(By.CssSelector(".top .nav .top-right .logged-out"));
+    {
+        //Top Navigation Elements
+        private IWebElement leftTopNav => driver.FindElement(By.CssSelector(".top .nav .top-left"));
+        private IWebElement rightTopNav => driver.FindElement(By.CssSelector(".top .nav .top-right "));
 
-        //
-        private IWebElement frontForm => driver.FindElement(By.CssSelector(".front-form"));
-        private IWebElement singleRadio => frontForm.FindElement(By.CssSelector(".front-single"));
-        private IWebElement returnRadio => frontForm.FindElement(By.CssSelector(".front-return"));
-        private IWebElement fixedRadio => frontForm.FindElement(By.CssSelector(".front-fixed"));
-        private IWebElement buisnessClientCheckbox => frontForm.FindElement(By.CssSelector(".form-checker"));
-        private IWebElement fromFront => frontForm.FindElement(By.CssSelector(".front-from"));
-        private IWebElement toFront => frontForm.FindElement(By.CssSelector(".front-to"));
+        //Front Form Elements
+        private IWebElement frontForm => driver.FindElement(By.CssSelector(".front-form"));        
         private IWebElement departureDate => frontForm.FindElement(By.CssSelector(".departureDatePickerTrigger"));
         private IWebElement arrivaleDate => frontForm.FindElement(By.CssSelector(".arrivalDatePickerTrigger"));
         private IWebElement countFront => frontForm.FindElement(By.CssSelector(".front-count"));
-        private IWebElement buttonAdultsAdd => countFront.FindElement(By.CssSelector(".count-list .count-row:first-child .count-plus"));
-        private IWebElement buttonAdultsRemove => countFront.FindElement(By.CssSelector(".count-list .count-row:first-child .count-minus"));
-        //private IWebElement searchButt => frontForm.FindElement(By.CssSelector("button"));
 
         public BilietaiPage(IWebDriver driver) : base(driver) { }
 
@@ -45,9 +27,11 @@ namespace NUnitTest_LT.Pages
         {
             AllureLifecycle.Instance.WrapInStep(() =>
             {
+                IWebElement bilietaiNav = leftTopNav.FindElement(By.CssSelector("a[href='/portal/']"));
                 bilietaiNav.Click();
             },
-            "Paspausti 'Bilietai'.");            
+            "Paspausti 'Bilietai'.");
+            
             return this;
         }
 
@@ -55,9 +39,11 @@ namespace NUnitTest_LT.Pages
         {
             AllureLifecycle.Instance.WrapInStep(() =>
             {
+                IWebElement kalba = rightTopNav.FindElement(By.CssSelector(".top-languages"));
                 kalba.Click();
             },
             "Paspausti kalbos pasirinkimą.");
+
             return this;
         }
 
@@ -81,6 +67,7 @@ namespace NUnitTest_LT.Pages
                 kalbaEN.Click();
             },
             "Pasirinkti EN kalbą.");
+
             return this;
         }
 
@@ -92,6 +79,7 @@ namespace NUnitTest_LT.Pages
                 kalbaRU.Click();                
             },
             "Pasirinkti RU kalbą.");
+
             return this;
         }
 
@@ -99,9 +87,11 @@ namespace NUnitTest_LT.Pages
         {
             AllureLifecycle.Instance.WrapInStep(() =>
             {
+                IWebElement singleRadio = frontForm.FindElement(By.CssSelector(".front-single"));
                 singleRadio.Click();
             },
             "Pžymėti 'Į vieną pusę'.");
+
             return this;
         }
 
@@ -109,6 +99,7 @@ namespace NUnitTest_LT.Pages
         {
             AllureLifecycle.Instance.WrapInStep(() =>
             {
+                IWebElement returnRadio = frontForm.FindElement(By.CssSelector(".front-return"));
                 returnRadio.Click();
             },
             "Pžymėti 'Į abi puses'.");
@@ -119,6 +110,7 @@ namespace NUnitTest_LT.Pages
         {
             AllureLifecycle.Instance.WrapInStep(() =>
             {
+                IWebElement fixedRadio = frontForm.FindElement(By.CssSelector(".front-fixed"));
                 fixedRadio.Click();
             },
             "Pžymėti 'Terminuotas'.");
@@ -129,6 +121,7 @@ namespace NUnitTest_LT.Pages
         {
             AllureLifecycle.Instance.WrapInStep(() =>
             {
+                IWebElement buisnessClientCheckbox = frontForm.FindElement(By.CssSelector(".form-checker"));
                 buisnessClientCheckbox.Click();
             },
                "Pžymėti 'Verslo klientas'.");
@@ -138,8 +131,8 @@ namespace NUnitTest_LT.Pages
         public BilietaiPage SelectFrom(string from)
         {
             AllureLifecycle.Instance.WrapInStep(() =>
-            {
-                IWebElement fromInput = fromFront.FindElement(By.CssSelector("input"));
+            {                
+                IWebElement fromInput = frontForm.FindElement(By.CssSelector(".front-from input"));
                 fromInput.Clear();
                 fromInput.SendKeys(from);
             },
@@ -150,8 +143,8 @@ namespace NUnitTest_LT.Pages
         public BilietaiPage SelectTo(string to)
         {
             AllureLifecycle.Instance.WrapInStep(() =>
-            {
-                IWebElement toInput = toFront.FindElement(By.CssSelector("input"));
+            {                
+                IWebElement toInput = frontForm.FindElement(By.CssSelector(".front-to input"));
                 toInput.SendKeys(to);
             },
             "Įvesti 'Į'.");
@@ -175,6 +168,7 @@ namespace NUnitTest_LT.Pages
                 countFront.Click();
             },
             "Paspausti: keleivių kiekis.");
+
             return this;
         }
 
@@ -182,15 +176,18 @@ namespace NUnitTest_LT.Pages
         {
             AllureLifecycle.Instance.WrapInStep(() =>
             {
+                IWebElement buttonAdultsAdd = countFront.FindElement(By.CssSelector(".count-list .count-row:first-child .count-plus"));
                 buttonAdultsAdd.Click();
             },
             "Pridėti suaugusį keleivį.");
+
             return this;
         }
         public BilietaiPage PassangerAdultsRemove()
         {
             AllureLifecycle.Instance.WrapInStep(() =>
             {
+                IWebElement buttonAdultsRemove = countFront.FindElement(By.CssSelector(".count-list .count-row:first-child .count-minus"));
                 buttonAdultsRemove.Click();
             },
             "Sumažinti suaugusių keleivių skaičių.");
@@ -231,6 +228,7 @@ namespace NUnitTest_LT.Pages
         {
             AllureLifecycle.Instance.WrapInStep(() => 
             {
+                IWebElement login = rightTopNav.FindElement(By.CssSelector(".logged-out"));
                 login.Click();                
             },
             "Paspausti 'Prisijungti' mygtuką.");
