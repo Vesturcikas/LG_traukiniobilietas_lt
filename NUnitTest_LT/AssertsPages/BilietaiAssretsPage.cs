@@ -1,15 +1,19 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support;
 using NUnitTest_LT.Pages;
 using NUnit.Framework;
+using System.Drawing;
+using OpenQA.Selenium.Support.UI;
+using System;
 
 namespace NUnitTest_LT.AssertsPages
 {
     public class BilietaiAssretsPage : BasePage
     {
-        private IWebElement kalba => driver.FindElement(By.CssSelector(".top .nav .top-right .top-languages"));
-        private IWebElement kalbaSubMenu => kalba.FindElement(By.CssSelector(".submenu-wrap"));        
+        //private IWebElement kalba => driver.FindElement(By.CssSelector(".top .nav .top-right .top-languages"));
+        //private IWebElement kalbaSubMenu => kalba.FindElement(By.CssSelector(".submenu-wrap"));        
         private IWebElement frontForm => driver.FindElement(By.CssSelector(".front-form"));
-        private IWebElement frontTitle => driver.FindElement(By.CssSelector(".front-title > h1"));
+        //private IWebElement frontTitle => driver.FindElement(By.CssSelector(".front-title > h1"));
         private IWebElement fromFront => frontForm.FindElement(By.CssSelector(".front-from"));
         private IWebElement toFront => frontForm.FindElement(By.CssSelector(".front-to"));
         private IWebElement departureDate => frontForm.FindElement(By.CssSelector(".departureDatePickerTrigger"));
@@ -30,6 +34,8 @@ namespace NUnitTest_LT.AssertsPages
 
         public void AssertKalbaSubMenu()
         {
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
+            IWebElement kalbaSubMenu = wait.Until(drv => drv.FindElement(By.CssSelector(".top .nav .top-right .top-languages .submenu-wrap")));
             Assert.IsTrue(kalbaSubMenu.Displayed);
         }
 
@@ -112,6 +118,30 @@ namespace NUnitTest_LT.AssertsPages
         public void AssertPassangersCount(string passengersCount)
         {
             Assert.AreEqual(passengersCount, valuePassengersCount.GetAttribute("value"));
+        }
+
+        public void AssertFromInputError()
+        {
+            //string errorColorCode = "#FFF0F0";
+
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
+            IWebElement fromFront = wait.Until(drv => drv.FindElement(By.CssSelector(".front-form .front-from")));
+
+            string colorWebElement = fromFront.GetCssValue("background-color");
+
+            Color spalva = new Color();
+            spalva.ToString();
+
+            Assert.AreEqual("#FFF0F0", colorWebElement);
+
+            //color: #fff0f0;
+            //color: rgba(255, 240, 240, 1);
+        }
+
+        public void AssertSearchResults()
+        {
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+
         }
 
         public void AssertBuissnesCheckbox()

@@ -70,24 +70,34 @@ namespace NUnitTest_LT.Tests.Bilietai
         }
 
         [Test]
+        public void SearchButton()
+        {
+            bilietaiPage.SerchButtonClick();
+            Thread.Sleep(3000);
+
+            bilietaiAssertsPage.AssertSearchResults();
+
+            Thread.Sleep(3000);
+        }
+
+        [Test]
         public void ChangingLanguage()
         {
-            bilietaiPage.NavKalbaClick();
-            
+            bilietaiPage.NavKalbaClick();            
             bilietaiAssertsPage.AssertKalbaSubMenu();            
             
             bilietaiPage.KalbaRUClick();
-                 
+            
             bilietaiAssertsPage.AssertKalbaRU();
 
             bilietaiPage.NavKalbaClick();            
             bilietaiPage.KalbaENClick();
-                       
+            
             bilietaiAssertsPage.AssertKalbaEN();
 
             bilietaiPage.NavKalbaClick();            
             bilietaiPage.KalbaLTClick();
-                       
+            
             bilietaiAssertsPage.AssertKalbaLT();            
         }
 
@@ -119,8 +129,29 @@ namespace NUnitTest_LT.Tests.Bilietai
             bilietaiAssertsPage.AssertAdultsValue(adultsCount);
             bilietaiAssertsPage.AssertPassangersCount(passengersCount);
 
-            
+            bilietaiPage.SerchButtonClick();
+
+            Thread.Sleep(5000);
+
         }
+
+        [Test]
+        public void WrongFromInputField()
+        {
+            string travelFrom = "Kuanas";
+            string travelTo = "Vilnius";
+
+            bilietaiPage
+                .OneWayClick()
+                .SelectFrom(travelFrom)
+                .SelectTo(travelTo);
+
+            bilietaiPage.SerchButtonClick();
+            Thread.Sleep(3000);
+
+            bilietaiAssertsPage.AssertFromInputError();            
+        }
+
         
         [TearDown]
         public void AfterTests()

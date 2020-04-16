@@ -2,6 +2,7 @@
 using NUnit.Allure.Core;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -36,7 +37,7 @@ namespace NUnitTest_LT.Pages
         private IWebElement countFront => frontForm.FindElement(By.CssSelector(".front-count"));
         private IWebElement buttonAdultsAdd => countFront.FindElement(By.CssSelector(".count-list .count-row:first-child .count-plus"));
         private IWebElement buttonAdultsRemove => countFront.FindElement(By.CssSelector(".count-list .count-row:first-child .count-minus"));
-        private IWebElement searchButt => frontForm.FindElement(By.CssSelector("button"));
+        //private IWebElement searchButt => frontForm.FindElement(By.CssSelector("button"));
 
         public BilietaiPage(IWebDriver driver) : base(driver) { }
 
@@ -139,6 +140,7 @@ namespace NUnitTest_LT.Pages
             AllureLifecycle.Instance.WrapInStep(() =>
             {
                 IWebElement fromInput = fromFront.FindElement(By.CssSelector("input"));
+                fromInput.Clear();
                 fromInput.SendKeys(from);
             },
             "Įvesti 'Iš'.");
@@ -217,6 +219,8 @@ namespace NUnitTest_LT.Pages
         {
             AllureLifecycle.Instance.WrapInStep(() =>
             {
+                WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(2));
+                IWebElement searchButt = wait.Until(dr => dr.FindElement(By.CssSelector(".front-form .front-search button")));
                 searchButt.Click();
             },
             "Paspausti 'Ieškoti'.");
