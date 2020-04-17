@@ -16,8 +16,7 @@ namespace NUnitTest_LT.Pages
         private IWebElement rightTopNav => driver.FindElement(By.CssSelector(".top .nav .top-right "));
 
         //Front Form Elements
-        private IWebElement frontForm => driver.FindElement(By.CssSelector(".front-form"));        
-        private IWebElement departureDate => frontForm.FindElement(By.CssSelector(".departureDatePickerTrigger"));
+        private IWebElement frontForm => driver.FindElement(By.CssSelector(".front-form"));      
         private IWebElement arrivaleDate => frontForm.FindElement(By.CssSelector(".arrivalDatePickerTrigger"));
         private IWebElement countFront => frontForm.FindElement(By.CssSelector(".front-count"));
 
@@ -151,8 +150,33 @@ namespace NUnitTest_LT.Pages
             return this;
         }
 
-        public BilietaiPage SelectDepartureDate()
+        public BilietaiPage SelectDepartureDate(int diena)
         {
+            var yearToday = DateTime.Today.Year;
+            var monthToday = DateTime.Today.Month;
+            var dayToday = DateTime.Today.Day;
+            //List<IWebElement> tds = new List<IWebElement>();
+
+            string dayDep = (dayToday + diena).ToString();
+            string selectorString = "[data-pika-day='" + dayDep + "']";
+
+            AllureLifecycle.Instance.WrapInStep(() =>
+            {
+                IWebElement departureDate = frontForm.FindElement(By.CssSelector(".departureDatePickerTrigger"));
+                departureDate.Click();
+
+                IWebElement departureDatePicker = wait
+                    .Until(drv => drv.FindElement(By.CssSelector(".departureDatePickerContainer")));
+
+                IWebElement dateTable = departureDatePicker.FindElement(By.CssSelector("tbody"));
+
+                IWebElement depDay = dateTable.FindElement(By.CssSelector(selectorString));
+
+                act.MoveToElement(depDay).Build().Perform();
+                depDay.Click();
+            },
+            "Pasirinkti išvykimo dieną");     
+
             return this;
         }
 

@@ -133,7 +133,22 @@ namespace NUnitTest_LT.Tests.Bilietai
             bilietaiPage.SerchButtonClick();
 
             Thread.Sleep(5000);
+        }
 
+        [Test]
+        public void DepartureDate()
+        {
+            int diena = 7;
+            string travelFrom = "Kaunas";
+            string travelTo = "Vilnius";
+
+            bilietaiPage
+                .SelectFrom(travelFrom)
+                .SelectTo(travelTo)
+                .SelectDepartureDate(diena)
+                .SerchButtonClick();
+
+            Thread.Sleep(5000);
         }
 
         [Test]
