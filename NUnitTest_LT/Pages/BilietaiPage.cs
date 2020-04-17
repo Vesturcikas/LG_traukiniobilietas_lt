@@ -17,7 +17,6 @@ namespace NUnitTest_LT.Pages
 
         //Front Form Elements
         private IWebElement frontForm => driver.FindElement(By.CssSelector(".front-form"));      
-        private IWebElement arrivaleDate => frontForm.FindElement(By.CssSelector(".arrivalDatePickerTrigger"));
         private IWebElement countFront => frontForm.FindElement(By.CssSelector(".front-count"));
 
         public BilietaiPage(IWebDriver driver) : base(driver) { }
@@ -150,16 +149,8 @@ namespace NUnitTest_LT.Pages
             return this;
         }
 
-        public BilietaiPage SelectDepartureDate(int diena)
-        {
-            var yearToday = DateTime.Today.Year;
-            var monthToday = DateTime.Today.Month;
-            var dayToday = DateTime.Today.Day;
-            //List<IWebElement> tds = new List<IWebElement>();
-
-            string dayDep = (dayToday + diena).ToString();
-            string selectorString = "[data-pika-day='" + dayDep + "']";
-
+        public BilietaiPage SelectDepartureDate(string selectorString)
+        {           
             AllureLifecycle.Instance.WrapInStep(() =>
             {
                 IWebElement departureDate = frontForm.FindElement(By.CssSelector(".departureDatePickerTrigger"));
@@ -171,7 +162,8 @@ namespace NUnitTest_LT.Pages
                 IWebElement dateTable = departureDatePicker.FindElement(By.CssSelector("tbody"));
 
                 IWebElement depDay = dateTable.FindElement(By.CssSelector(selectorString));
-
+                
+                Actions act = new Actions(driver);
                 act.MoveToElement(depDay).Build().Perform();
                 depDay.Click();
             },
@@ -180,8 +172,26 @@ namespace NUnitTest_LT.Pages
             return this;
         }
 
-        public BilietaiPage SelectArrivalDate()
+        public BilietaiPage SelectArrivalDate(string selectorString2)
         {
+            AllureLifecycle.Instance.WrapInStep(() =>
+            {
+                IWebElement arrivalDate = frontForm.FindElement(By.CssSelector(".arrivalDatePickerTrigger"));
+                arrivalDate.Click();                
+
+                IWebElement arrivalDatePicker = wait
+                    .Until(drv => drv.FindElement(By.CssSelector(".arrivalDatePickerContainer")));                
+
+                IWebElement dateTable = arrivalDatePicker.FindElement(By.CssSelector("tbody"));
+
+                IWebElement arrivDay = dateTable.FindElement(By.CssSelector(selectorString2));
+                
+                Actions act = new Actions(driver);
+                act.MoveToElement(arrivDay).Build().Perform();
+                arrivDay.Click();
+            },
+            "Pasirinkti atvykimo dieną");
+
             return this;
         }
 

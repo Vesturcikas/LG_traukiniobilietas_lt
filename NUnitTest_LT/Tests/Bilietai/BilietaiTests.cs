@@ -142,13 +142,54 @@ namespace NUnitTest_LT.Tests.Bilietai
             string travelFrom = "Kaunas";
             string travelTo = "Vilnius";
 
+            //var year = DateTime.Today.Year;
+            //var month = DateTime.Today.Month;
+            var day = DateTime.Today.Day;            
+
+            string dayDep = (day + diena).ToString();
+            string selectorString = "[data-pika-day='" + dayDep + "']";            
+            string dateDeparture = DateTime.Today.AddDays(diena).ToString("yyyy-MM-dd");
+
             bilietaiPage
                 .SelectFrom(travelFrom)
                 .SelectTo(travelTo)
-                .SelectDepartureDate(diena)
-                .SerchButtonClick();
+                .SelectDepartureDate(selectorString);                
 
-            Thread.Sleep(5000);
+            Thread.Sleep(1000);
+
+            bilietaiAssertsPage.AssertDepartureDate(dateDeparture);
+        }
+
+        [Test]
+        public void ArrivalDate()
+        {
+            int diena = 2;
+            string travelFrom = "Kaunas";
+            string travelTo = "Vilnius";
+
+            //var yearToday = DateTime.Today.Year;
+            //var monthToday = DateTime.Today.Month;
+            var dayToday = DateTime.Today.Day;
+
+            int dayDepInt = dayToday + diena;
+            string dayDep = dayDepInt.ToString();
+            string selectorStringDep = "[data-pika-day='" + dayDep + "']";
+            
+            string dayArriv = (dayDepInt + diena).ToString();
+            string selectorStringArriv = "[data-pika-day='" + dayArriv + "']";
+
+            string dateArrival = DateTime.Today.AddDays(diena*2).ToString("yyyy-MM-dd");
+
+            bilietaiPage
+                .RoundTripClick()
+                .SelectFrom(travelFrom)
+                .SelectTo(travelTo)
+                .SelectDepartureDate(selectorStringDep)
+                .SelectArrivalDate(selectorStringArriv);
+
+            Thread.Sleep(1000);
+
+            bilietaiAssertsPage.AssertArrivalDate(dateArrival);
         }
 
         [Test]
@@ -163,7 +204,7 @@ namespace NUnitTest_LT.Tests.Bilietai
                 .SelectTo(travelTo);
 
             bilietaiPage.SerchButtonClick();
-            Thread.Sleep(1000);
+            Thread.Sleep(3000);
 
             bilietaiAssertsPage.AssertFromInputError();            
         }
@@ -180,7 +221,7 @@ namespace NUnitTest_LT.Tests.Bilietai
                 .SelectTo(travelTo);
 
             bilietaiPage.SerchButtonClick();
-            Thread.Sleep(1000);
+            Thread.Sleep(3000);
 
             bilietaiAssertsPage.AssertToInputError();
         }

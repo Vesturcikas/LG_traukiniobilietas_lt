@@ -99,6 +99,18 @@ namespace NUnitTest_LT.AssertsPages
             Assert.IsTrue(!countFront.Displayed);
         }
 
+        public void AssertDepartureDate(string depDate)
+        {
+            IWebElement departureDateText = departureDate.FindElement(By.CssSelector("section"));
+            Assert.AreEqual(depDate, departureDateText.Text);
+        }
+
+        public void AssertArrivalDate(string arrivDate)
+        {
+            IWebElement arrivalDateText = arrivalDate.FindElement(By.CssSelector("section"));
+            Assert.AreEqual(arrivDate, arrivalDateText.Text);
+        }
+
         public void AssertCountList()
         {
             IWebElement countList = countFront.FindElement(By.CssSelector(".count-list"));
@@ -143,6 +155,7 @@ namespace NUnitTest_LT.AssertsPages
             Assert.AreEqual("rgba(255, 240, 240, 1)", colorWebElement);
         }
 
+        //To DO
         public void AssertSearchResults()
         {
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
