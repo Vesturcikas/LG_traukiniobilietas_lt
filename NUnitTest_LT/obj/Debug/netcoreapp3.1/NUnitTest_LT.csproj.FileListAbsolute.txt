@@ -91,6 +91,7 @@ D:\C#\Automatinis_Testavimas\LG_traukiniobilietas_lt\NUnitTest_LT\bin\Debug\netc
 D:\C#\Automatinis_Testavimas\LG_traukiniobilietas_lt\NUnitTest_LT\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
 D:\C#\Automatinis_Testavimas\LG_traukiniobilietas_lt\NUnitTest_LT\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
 D:\C#\Automatinis_Testavimas\LG_traukiniobilietas_lt\NUnitTest_LT\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+D:\C#\Automatinis_Testavimas\LG_traukiniobilietas_lt\NUnitTest_LT\obj\Debug\netcoreapp3.1\NUnitTest_LT.csprojAssemblyReference.cache
 D:\C#\Automatinis_Testavimas\LG_traukiniobilietas_lt\NUnitTest_LT\obj\Debug\netcoreapp3.1\NUnitTest_LT.csproj.CoreCompileInputs.cache
 D:\C#\Automatinis_Testavimas\LG_traukiniobilietas_lt\NUnitTest_LT\obj\Debug\netcoreapp3.1\NUnitTest_LT.AssemblyInfoInputs.cache
 D:\C#\Automatinis_Testavimas\LG_traukiniobilietas_lt\NUnitTest_LT\obj\Debug\netcoreapp3.1\NUnitTest_LT.AssemblyInfo.cs

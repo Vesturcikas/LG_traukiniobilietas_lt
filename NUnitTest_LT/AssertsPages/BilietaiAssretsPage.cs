@@ -28,7 +28,7 @@ namespace NUnitTest_LT.AssertsPages
 
         public void AssertKalbaSubMenu()
         {
-            //WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
             IWebElement kalbaSubMenu = wait.Until(drv => drv.FindElement(By.CssSelector(".top .nav .top-right .top-languages .submenu-wrap")));
             Assert.IsTrue(kalbaSubMenu.Displayed);
         }
