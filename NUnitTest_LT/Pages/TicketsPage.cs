@@ -9,7 +9,7 @@ using System.Text;
 
 namespace NUnitTest_LT.Pages
 {
-    public class BilietaiPage : BasePage
+    public class TicketsPage : BasePage
     {
         //Top Navigation Elements
         private IWebElement leftTopNav => driver.FindElement(By.CssSelector(".top .nav .top-left"));
@@ -19,69 +19,69 @@ namespace NUnitTest_LT.Pages
         private IWebElement frontForm => driver.FindElement(By.CssSelector(".front-form"));      
         private IWebElement countFront => frontForm.FindElement(By.CssSelector(".front-count"));
 
-        public BilietaiPage(IWebDriver driver) : base(driver) { }
+        public TicketsPage(IWebDriver driver) : base(driver) { }
 
-        public BilietaiPage NavBilietaiClick()
+        public TicketsPage NavbarTicketsClick()
         {
             AllureLifecycle.Instance.WrapInStep(() =>
             {
-                IWebElement bilietaiNav = leftTopNav.FindElement(By.CssSelector("a[href='/portal/']"));
-                bilietaiNav.Click();
+                IWebElement tickets = leftTopNav.FindElement(By.CssSelector("a[href='/portal/']"));
+                tickets.Click();
             },
             "Paspausti 'Bilietai'.");
             
             return this;
         }
 
-        public BilietaiPage NavKalbaClick()
+        public TicketsPage NavbarLanguageClick()
         {
             AllureLifecycle.Instance.WrapInStep(() =>
             {
-                IWebElement kalba = rightTopNav.FindElement(By.CssSelector(".top-languages"));
-                kalba.Click();
+                IWebElement language = rightTopNav.FindElement(By.CssSelector(".top-languages"));
+                language.Click();
             },
             "Paspausti kalbos pasirinkimą.");
 
             return this;
         }
 
-        public BilietaiPage KalbaLTClick()
+        public TicketsPage LanguageLTClick()
         {
             AllureLifecycle.Instance.WrapInStep(() =>
             {
-                IWebElement kalbaLT = driver.FindElement(By.CssSelector("a[href='/portal/lt']"));
-                kalbaLT.Click();
+                IWebElement languageLT = driver.FindElement(By.CssSelector("a[href='/portal/lt']"));
+                languageLT.Click();
             },
             "Pasirinkti LT kalbą.");
             
             return this;
         }
 
-        public BilietaiPage KalbaENClick()
+        public TicketsPage LanguageENClick()
         {
             AllureLifecycle.Instance.WrapInStep(() =>
             {
-                IWebElement kalbaEN = driver.FindElement(By.CssSelector("a[href='/portal/en']"));
-                kalbaEN.Click();
+                IWebElement languageEN = driver.FindElement(By.CssSelector("a[href='/portal/en']"));
+                languageEN.Click();
             },
             "Pasirinkti EN kalbą.");
 
             return this;
         }
 
-        public BilietaiPage KalbaRUClick()
+        public TicketsPage LanguageRUClick()
         {
             AllureLifecycle.Instance.WrapInStep(() =>
             {
-                IWebElement kalbaRU = driver.FindElement(By.CssSelector("a[href='/portal/ru']"));
-                kalbaRU.Click();                
+                IWebElement languageRU = driver.FindElement(By.CssSelector("a[href='/portal/ru']"));
+                languageRU.Click();                
             },
             "Pasirinkti RU kalbą.");
 
             return this;
         }
 
-        public BilietaiPage OneWayClick()
+        public TicketsPage OneWayClick()
         {
             AllureLifecycle.Instance.WrapInStep(() =>
             {
@@ -93,7 +93,7 @@ namespace NUnitTest_LT.Pages
             return this;
         }
 
-        public BilietaiPage RoundTripClick()
+        public TicketsPage RoundTripClick()
         {
             AllureLifecycle.Instance.WrapInStep(() =>
             {
@@ -104,7 +104,7 @@ namespace NUnitTest_LT.Pages
             return this;
         }
 
-        public BilietaiPage FixedTermClick()
+        public TicketsPage FixedTermClick()
         {
             AllureLifecycle.Instance.WrapInStep(() =>
             {
@@ -115,7 +115,7 @@ namespace NUnitTest_LT.Pages
             return this;
         }
 
-        public BilietaiPage BuisnessCustomerClick()
+        public TicketsPage BuisnessCustomerClick()
         {
             AllureLifecycle.Instance.WrapInStep(() =>
             {
@@ -126,7 +126,7 @@ namespace NUnitTest_LT.Pages
             return this;
         }
 
-        public BilietaiPage SelectFrom(string from)
+        public TicketsPage SelectFrom(string from)
         {
             AllureLifecycle.Instance.WrapInStep(() =>
             {                
@@ -138,7 +138,7 @@ namespace NUnitTest_LT.Pages
             return this;
         }
 
-        public BilietaiPage SelectTo(string to)
+        public TicketsPage SelectTo(string to)
         {
             AllureLifecycle.Instance.WrapInStep(() =>
             {                
@@ -149,7 +149,7 @@ namespace NUnitTest_LT.Pages
             return this;
         }
 
-        public BilietaiPage SelectDepartureDate(string selectorString)
+        public TicketsPage SelectDepartureDate(string selectorString)
         {           
             AllureLifecycle.Instance.WrapInStep(() =>
             {
@@ -172,7 +172,7 @@ namespace NUnitTest_LT.Pages
             return this;
         }
 
-        public BilietaiPage SelectArrivalDate(string selectorString2)
+        public TicketsPage SelectArrivalDate(string selectorString2)
         {
             AllureLifecycle.Instance.WrapInStep(() =>
             {
@@ -195,7 +195,7 @@ namespace NUnitTest_LT.Pages
             return this;
         }
 
-        public BilietaiPage PassengerCountClick()
+        public TicketsPage PassengerCountClick()
         {
             AllureLifecycle.Instance.WrapInStep(() =>
             {
@@ -206,7 +206,7 @@ namespace NUnitTest_LT.Pages
             return this;
         }
 
-        public BilietaiPage PassangerAdultsAdd()
+        public TicketsPage PassangerAdultsAdd()
         {
             AllureLifecycle.Instance.WrapInStep(() =>
             {
@@ -217,7 +217,7 @@ namespace NUnitTest_LT.Pages
 
             return this;
         }
-        public BilietaiPage PassangerAdultsRemove()
+        public TicketsPage PassangerAdultsRemove()
         {
             AllureLifecycle.Instance.WrapInStep(() =>
             {
@@ -228,25 +228,25 @@ namespace NUnitTest_LT.Pages
             return this;
         }
 
-        public BilietaiPage PassangerChildrenAdd()
+        public TicketsPage PassangerChildrenAdd()
         {
             return this;
         }
-        public BilietaiPage PassangerChildrenRemove()
-        {
-            return this;
-        }
-
-        public BilietaiPage PassangerAnimalsAdd()
-        {
-            return this;
-        }
-        public BilietaiPage PassangerAnimalsRemove()
+        public TicketsPage PassangerChildrenRemove()
         {
             return this;
         }
 
-        public BilietaiPage SerchButtonClick()
+        public TicketsPage PassangerAnimalsAdd()
+        {
+            return this;
+        }
+        public TicketsPage PassangerAnimalsRemove()
+        {
+            return this;
+        }
+
+        public TicketsPage SerchButtonClick()
         {
             AllureLifecycle.Instance.WrapInStep(() =>
             {
@@ -258,7 +258,7 @@ namespace NUnitTest_LT.Pages
             return this;
         }
 
-        public BilietaiPage SignInClick()
+        public TicketsPage SignInClick()
         {
             AllureLifecycle.Instance.WrapInStep(() => 
             {

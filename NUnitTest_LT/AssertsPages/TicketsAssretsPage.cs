@@ -8,7 +8,7 @@ using System;
 
 namespace NUnitTest_LT.AssertsPages
 {
-    public class BilietaiAssretsPage : BasePage
+    public class TicketsAssretsPage : BasePage
     {             
         private IWebElement frontForm => driver.FindElement(By.CssSelector(".front-form"));        
         private IWebElement fromFront => frontForm.FindElement(By.CssSelector(".front-from"));
@@ -19,21 +19,21 @@ namespace NUnitTest_LT.AssertsPages
         private IWebElement buisnessClientMessage => frontForm.FindElement(By.CssSelector(".front-dir-tail"));
 
 
-        public BilietaiAssretsPage(IWebDriver driver) : base(driver) { }
+        public TicketsAssretsPage(IWebDriver driver) : base(driver) { }
 
-        public void AssertBilietai()
+        public void AssertTickets()
         {
             Assert.AreEqual("https://www.traukiniobilietas.lt/portal/", driver.Url);
         }
 
-        public void AssertKalbaSubMenu()
+        public void AssertLanguageSubMenu()
         {
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
             IWebElement kalbaSubMenu = wait.Until(drv => drv.FindElement(By.CssSelector(".top .nav .top-right .top-languages .submenu-wrap")));
             Assert.IsTrue(kalbaSubMenu.Displayed);
         }
 
-        public void AssertKalbaLT()
+        public void AssertLanguageLT()
         {
             Assert.AreEqual("https://www.traukiniobilietas.lt/portal/lt", driver.Url);
 
@@ -42,7 +42,7 @@ namespace NUnitTest_LT.AssertsPages
             Assert.AreEqual("Kur keliausite šiandien?", frontTitle.Text);
         }
 
-        public void AssertKalbaEN()
+        public void AssertLanguageEN()
         {
             Assert.AreEqual("https://www.traukiniobilietas.lt/portal/en", driver.Url);
 
@@ -51,7 +51,7 @@ namespace NUnitTest_LT.AssertsPages
             Assert.AreEqual("Where would you like to go today?", frontTitle.Text);
         }
 
-        public void AssertKalbaRU()
+        public void AssertLanguageRU()
         {          
             Assert.AreEqual("https://www.traukiniobilietas.lt/portal/ru", driver.Url);
 
@@ -67,7 +67,7 @@ namespace NUnitTest_LT.AssertsPages
             Assert.IsTrue(departureDate.Displayed);
             Assert.IsTrue(!arrivalDate.Displayed);
 
-            //Jei pažymėta "Verslo klientas"
+            //true if checked 'Verslo klientas'"
             if (bchbox)
             {
                 Assert.IsTrue(!countFront.Displayed);
@@ -82,7 +82,7 @@ namespace NUnitTest_LT.AssertsPages
             Assert.IsTrue(departureDate.Displayed);
             Assert.IsTrue(arrivalDate.Displayed);
 
-            //Jei pažymėta "Verslo klientas"
+            //true if checked 'Verslo klientas'
             if (bchbox)
             {
                 Assert.IsTrue(!countFront.Displayed);

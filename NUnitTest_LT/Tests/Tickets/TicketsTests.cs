@@ -5,101 +5,101 @@ using NUnit.Allure.Core;
 using System;
 using System.Threading;
 
-namespace NUnitTest_LT.Tests.Bilietai
+namespace NUnitTest_LT.Tests.Tickets
 {
     [AllureNUnit]
-    public class BilietaiTests : BaseTest
+    public class TicketsTests : BaseTest
     {
-        private BilietaiPage bilietaiPage;
-        private BilietaiAssretsPage bilietaiAssertsPage;
+        private TicketsPage ticketsPage;
+        private TicketsAssretsPage ticketsAssertsPage;
 
         [SetUp]
         public void BeforeTests()
         {
             string testUrl = baseUrl;
             driver.Navigate().GoToUrl(testUrl);
-            bilietaiAssertsPage = new BilietaiAssretsPage(driver);
-            bilietaiPage = new BilietaiPage(driver);            
+            ticketsAssertsPage = new TicketsAssretsPage(driver);
+            ticketsPage = new TicketsPage(driver);            
         }
 
         [Test]
-        public void TopNavBilietai()
+        public void TopNavbarTickets()
         {
-            bilietaiPage.NavBilietaiClick();
-            bilietaiAssertsPage.AssertBilietai();        
+            ticketsPage.NavbarTicketsClick();
+            ticketsAssertsPage.AssertTickets();        
         }
         
         [Test]
         public void SingleRadio()
         {
-            bilietaiPage.OneWayClick();
-            bilietaiAssertsPage.AssertOneWay(false);            
+            ticketsPage.OneWayClick();
+            ticketsAssertsPage.AssertOneWay(false);            
         }
 
         
         [Test]
         public void ReturnRadio()
         {
-            bilietaiPage.RoundTripClick();
+            ticketsPage.RoundTripClick();
             Thread.Sleep(1000);
-            bilietaiAssertsPage.AssertRoundTrip(false);            
+            ticketsAssertsPage.AssertRoundTrip(false);            
         }       
 
         [Test]
         public void FixedRadio()
         {
-            bilietaiPage.FixedTermClick();
+            ticketsPage.FixedTermClick();
             Thread.Sleep(1000);
-            bilietaiAssertsPage.AssertFixedTerm();           
+            ticketsAssertsPage.AssertFixedTerm();           
         }
         
         [Test]
         public void BuisnessClientCheckbox()
         {
-            bilietaiPage
+            ticketsPage
                 .BuisnessCustomerClick()
                 .OneWayClick();
             Thread.Sleep(1000);
-            bilietaiAssertsPage.AssertOneWay(true);
+            ticketsAssertsPage.AssertOneWay(true);
 
-            bilietaiPage.RoundTripClick();
+            ticketsPage.RoundTripClick();
             Thread.Sleep(1000);
-            bilietaiAssertsPage.AssertRoundTrip(true);
+            ticketsAssertsPage.AssertRoundTrip(true);
 
-            bilietaiPage.FixedTermClick();
+            ticketsPage.FixedTermClick();
             Thread.Sleep(1000);
-            bilietaiAssertsPage.AssertFixedTerm();        
+            ticketsAssertsPage.AssertFixedTerm();        
         }
 
         [Test]
         public void SearchButton()
         {
-            bilietaiPage.SerchButtonClick();
+            ticketsPage.SerchButtonClick();
             Thread.Sleep(1000);
-            bilietaiAssertsPage.AssertFromInputError();
-            bilietaiAssertsPage.AssertToInputError();
+            ticketsAssertsPage.AssertFromInputError();
+            ticketsAssertsPage.AssertToInputError();
             Thread.Sleep(3000);
         }
 
         [Test]
         public void ChangingLanguage()
         {
-            bilietaiPage.NavKalbaClick();            
-            bilietaiAssertsPage.AssertKalbaSubMenu();            
-            
-            bilietaiPage.KalbaRUClick();
-            
-            bilietaiAssertsPage.AssertKalbaRU();
+            ticketsPage.NavbarLanguageClick();            
+            ticketsAssertsPage.AssertLanguageSubMenu();
 
-            bilietaiPage.NavKalbaClick();            
-            bilietaiPage.KalbaENClick();
+            ticketsPage.LanguageRUClick();
             
-            bilietaiAssertsPage.AssertKalbaEN();
+            ticketsAssertsPage.AssertLanguageRU();
 
-            bilietaiPage.NavKalbaClick();            
-            bilietaiPage.KalbaLTClick();
+            ticketsPage.NavbarLanguageClick();
+            ticketsPage.LanguageENClick();
             
-            bilietaiAssertsPage.AssertKalbaLT();            
+            ticketsAssertsPage.AssertLanguageEN();
+
+            ticketsPage.NavbarLanguageClick();
+            ticketsPage.LanguageLTClick();
+            
+            ticketsAssertsPage.AssertLanguageLT();            
         }
 
         [Test]
@@ -110,7 +110,7 @@ namespace NUnitTest_LT.Tests.Bilietai
             string travelFrom = "Kaunas";
             string travelTo = "Vilnius";
 
-            bilietaiPage
+            ticketsPage
                 .OneWayClick()
                 .SelectFrom(travelFrom)
                 .SelectTo(travelTo)
@@ -119,18 +119,18 @@ namespace NUnitTest_LT.Tests.Bilietai
             adultsCount = "2";
             passengersCount = "2";
 
-            bilietaiAssertsPage.AssertCountList();
-            bilietaiAssertsPage.AssertAdultsValue(adultsCount);
-            bilietaiAssertsPage.AssertPassangersCount(passengersCount);
+            ticketsAssertsPage.AssertCountList();
+            ticketsAssertsPage.AssertAdultsValue(adultsCount);
+            ticketsAssertsPage.AssertPassangersCount(passengersCount);
 
-            bilietaiPage.PassangerAdultsRemove();
+            ticketsPage.PassangerAdultsRemove();
             adultsCount = "1";
             passengersCount = "1";
 
-            bilietaiAssertsPage.AssertAdultsValue(adultsCount);
-            bilietaiAssertsPage.AssertPassangersCount(passengersCount);
+            ticketsAssertsPage.AssertAdultsValue(adultsCount);
+            ticketsAssertsPage.AssertPassangersCount(passengersCount);
 
-            bilietaiPage.SerchButtonClick();
+            ticketsPage.SerchButtonClick();
 
             Thread.Sleep(5000);
         }
@@ -150,14 +150,14 @@ namespace NUnitTest_LT.Tests.Bilietai
             string selectorString = "[data-pika-day='" + dayDep + "']";            
             string dateDeparture = DateTime.Today.AddDays(diena).ToString("yyyy-MM-dd");
 
-            bilietaiPage
+            ticketsPage
                 .SelectFrom(travelFrom)
                 .SelectTo(travelTo)
                 .SelectDepartureDate(selectorString);                
 
             Thread.Sleep(1000);
 
-            bilietaiAssertsPage.AssertDepartureDate(dateDeparture);
+            ticketsAssertsPage.AssertDepartureDate(dateDeparture);
         }
 
         [Test]
@@ -180,7 +180,7 @@ namespace NUnitTest_LT.Tests.Bilietai
 
             string dateArrival = DateTime.Today.AddDays(diena*2).ToString("yyyy-MM-dd");
 
-            bilietaiPage
+            ticketsPage
                 .RoundTripClick()
                 .SelectFrom(travelFrom)
                 .SelectTo(travelTo)
@@ -189,7 +189,7 @@ namespace NUnitTest_LT.Tests.Bilietai
 
             Thread.Sleep(1000);
 
-            bilietaiAssertsPage.AssertArrivalDate(dateArrival);
+            ticketsAssertsPage.AssertArrivalDate(dateArrival);
         }
 
         [Test]
@@ -198,15 +198,15 @@ namespace NUnitTest_LT.Tests.Bilietai
             string travelFrom = "Kuanas";
             string travelTo = "Vilnius";
 
-            bilietaiPage
+            ticketsPage
                 .OneWayClick()
                 .SelectFrom(travelFrom)
                 .SelectTo(travelTo);
 
-            bilietaiPage.SerchButtonClick();
+            ticketsPage.SerchButtonClick();
             Thread.Sleep(3000);
 
-            bilietaiAssertsPage.AssertFromInputError();            
+            ticketsAssertsPage.AssertFromInputError();            
         }
 
         [Test]
@@ -215,15 +215,15 @@ namespace NUnitTest_LT.Tests.Bilietai
             string travelFrom = "Kaunas";
             string travelTo = "Vilnus";
 
-            bilietaiPage
+            ticketsPage
                 .OneWayClick()
                 .SelectFrom(travelFrom)
                 .SelectTo(travelTo);
 
-            bilietaiPage.SerchButtonClick();
+            ticketsPage.SerchButtonClick();
             Thread.Sleep(3000);
 
-            bilietaiAssertsPage.AssertToInputError();
+            ticketsAssertsPage.AssertToInputError();
         }
 
 

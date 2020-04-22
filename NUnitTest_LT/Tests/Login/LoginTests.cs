@@ -9,7 +9,7 @@ namespace NUnitTest_LT.Tests.Login
     [AllureNUnit]
     public class LoginTests : BaseTest
     {
-        private BilietaiPage bilietaiPage;
+        private TicketsPage bilietaiPage;
         private LoginPage loginPage;
         private LoginAssertsPage loginAssertsPage;
 
@@ -18,7 +18,7 @@ namespace NUnitTest_LT.Tests.Login
         {
             string testUrl = baseUrl;
             driver.Navigate().GoToUrl(testUrl);            
-            bilietaiPage = new BilietaiPage(driver);
+            bilietaiPage = new TicketsPage(driver);
             loginPage = new LoginPage(driver);
             loginAssertsPage = new LoginAssertsPage(driver);            
         }
