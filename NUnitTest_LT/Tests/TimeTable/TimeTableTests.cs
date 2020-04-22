@@ -2,13 +2,13 @@
 using NUnit.Framework;
 using NUnit.Allure.Core;
 
-namespace NUnitTest_LT.Tests.Tvarkarasciai
+namespace NUnitTest_LT.Tests.TimeTable
 {
     [AllureNUnit]
-    public class TvarkarasciaiTests : BaseTest
+    public class TimeTableTests : BaseTest
     {
-        private IWebElement topNav => driver.FindElement(By.CssSelector(".nav"));
-        private IWebElement tvarkaraciaiNav => topNav.FindElement(By.LinkText("Tvarkaraščiai"));
+        private IWebElement topNavbar => driver.FindElement(By.CssSelector(".nav"));
+        private IWebElement timeTableNavbar => topNavbar.FindElement(By.LinkText("Tvarkaraščiai"));
 
         [SetUp]
         public void BeforeTests()
@@ -18,9 +18,9 @@ namespace NUnitTest_LT.Tests.Tvarkarasciai
         }
 
         [Test]
-        public void TopNavTvarkarasciai()
+        public void NavigationTimeTable()
         {
-            tvarkaraciaiNav.Click();
+            timeTableNavbar.Click();
             Assert.AreEqual("https://www.traukiniobilietas.lt/portal/routes-schedules", driver.Url);
         }
 

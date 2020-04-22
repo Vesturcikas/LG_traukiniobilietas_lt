@@ -5,32 +5,32 @@ using System.Text;
 
 namespace NUnitTest_LT.Pages
 {
-    public class TvarkarasciaiPage : BasePage
+    public class TimeTablePage : BasePage
     {
 
-        public TvarkarasciaiPage(IWebDriver drive) : base(drive) { }
+        public TimeTablePage(IWebDriver drive) : base(drive) { }
 
-        public TvarkarasciaiPage ClickTimetable()
+        public TimeTablePage ClickTimetable()
         {
             return this;
         }
 
-        public TvarkarasciaiPage ClickSchedules()
+        public TimeTablePage ClickSchedules()
         {
             return this;
         }
 
-        public TvarkarasciaiPage SelectFrom()
+        public TimeTablePage SelectFrom()
         {
             return this;
         }
 
-        public TvarkarasciaiPage SelectTo()
+        public TimeTablePage SelectTo()
         {
             return this;
         }
 
-        public TvarkarasciaiPage ClickSearch()
+        public TimeTablePage ClickSearch()
         {
             return this;
         }
