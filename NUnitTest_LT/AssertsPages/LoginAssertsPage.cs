@@ -8,7 +8,7 @@ namespace NUnitTest_LT.AssertsPages
 {
     public class LoginAssertsPage : BasePage
     {
-        private IWebElement loginBox => driver.FindElement(By.CssSelector(".login-box"));
+        private IWebElement loginBox => driver.FindElement(By.CssSelector(".login-box"));        
         private IWebElement loginSpan => driver.FindElement(By.CssSelector("span.login-span"));
         private IWebElement closeSpan => driver.FindElement(By.CssSelector("span.close-span"));
 
@@ -33,6 +33,24 @@ namespace NUnitTest_LT.AssertsPages
 
             Assert.That(loginError.Displayed);
             Assert.AreEqual("Neteisingas prisijungimo vardas arba slaptažodis", loginError.Text);
+        }
+
+        public void AssertEmailIsRequired()
+        {
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
+            IWebElement emailError = wait.Until(drv => drv.FindElement(By.CssSelector(".login-form .login-mail .error-text span")));
+
+            Assert.That(emailError.Displayed);
+            Assert.AreEqual("Reikšmė yra privaloma!", emailError.Text);
+        }
+
+        public void AssertPasswordIsRequired()
+        {
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
+            IWebElement passwordError = wait.Until(drv => drv.FindElement(By.CssSelector(".login-form .login-pass .error-text span")));
+
+            Assert.That(passwordError.Displayed);
+            Assert.AreEqual("Reikšmė yra privaloma!", passwordError.Text);
         }
     }
 }

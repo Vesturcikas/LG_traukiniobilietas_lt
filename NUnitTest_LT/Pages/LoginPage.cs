@@ -6,12 +6,12 @@ namespace NUnitTest_LT.Pages
 {
     public class LoginPage : BasePage
     {
-        
-        private IWebElement inputEmail => driver.FindElement(By.CssSelector(".login-box .login-mail input"));
-        private IWebElement inputPassword => driver.FindElement(By.CssSelector(".login-box .login-pass input"));
-        private IWebElement buttonSignIn => driver.FindElement(By.CssSelector(".login-box #loginButton"));
-        private IWebElement linkPasswordReminder => driver.FindElement(By.CssSelector(".login-box .remindtrigger"));
-        private IWebElement buttonRegister => driver.FindElement(By.CssSelector(".login-box .regtrigger"));
+        private IWebElement loginBox => driver.FindElement(By.CssSelector(".login-box"));
+        private IWebElement inputEmail => loginBox.FindElement(By.CssSelector(".login-mail input"));
+        private IWebElement inputPassword => loginBox.FindElement(By.CssSelector(".login-pass input"));
+        private IWebElement buttonSignIn => loginBox.FindElement(By.CssSelector("#loginButton"));
+        private IWebElement linkPasswordReminder => loginBox.FindElement(By.CssSelector(".remindtrigger"));
+        private IWebElement buttonRegister => loginBox.FindElement(By.CssSelector(".regtrigger"));
 
         public LoginPage(IWebDriver driver) : base(driver) { }
 
@@ -67,6 +67,13 @@ namespace NUnitTest_LT.Pages
                 buttonRegister.Click();
             },
             "Click 'REGISTER' button");
+            return this;
+        }
+
+        public LoginPage ClearInputsFeald()
+        {
+            inputEmail.Clear();
+            inputPassword.Clear();
             return this;
         }
     }

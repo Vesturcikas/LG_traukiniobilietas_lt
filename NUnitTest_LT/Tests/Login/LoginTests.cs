@@ -9,7 +9,7 @@ namespace NUnitTest_LT.Tests.Login
     [AllureNUnit]
     public class LoginTests : BaseTest
     {
-        private TicketsPage bilietaiPage;
+        private TicketsPage ticketsPage;
         private LoginPage loginPage;
         private LoginAssertsPage loginAssertsPage;
 
@@ -18,7 +18,7 @@ namespace NUnitTest_LT.Tests.Login
         {
             string testUrl = baseUrl;
             driver.Navigate().GoToUrl(testUrl);            
-            bilietaiPage = new TicketsPage(driver);
+            ticketsPage = new TicketsPage(driver);
             loginPage = new LoginPage(driver);
             loginAssertsPage = new LoginAssertsPage(driver);            
         }
@@ -26,16 +26,28 @@ namespace NUnitTest_LT.Tests.Login
         [Test]
         public void OpenCloseLoginPageTest()
         {
-            bilietaiPage.SignInClick();
+            ticketsPage.SignInClick();
             loginAssertsPage.AssertIsOpenLoginPage();
-            bilietaiPage.SignInClick();
+            ticketsPage.SignInClick();
             loginAssertsPage.AssertIsClosedLoginPage();
+        }
+
+        [Test]
+        public void ValueIsRequired()
+        {
+            ticketsPage.SignInClick();
+            loginPage
+                .ClearInputsFeald()
+                .SignInButtonClick();
+            Thread.Sleep(3000);
+            loginAssertsPage.AssertEmailIsRequired();
+            loginAssertsPage.AssertPasswordIsRequired();
         }
 
         [Test]
         public void WrongPasswordLoginTest()
         {
-            bilietaiPage.SignInClick();
+            ticketsPage.SignInClick();
             loginAssertsPage.AssertIsOpenLoginPage();
 
             loginPage
@@ -51,7 +63,7 @@ namespace NUnitTest_LT.Tests.Login
         [TearDown]
         public void AfterTests()
         {
-
+            //loginPage.ClearInputsFeald();
         }
     }
 }
